@@ -13,7 +13,6 @@ import {
   IoHeart,
   IoEye,
   IoChevronForward,
-  IoArrowForward,
   IoFlame,
   IoTrendingUp,
   IoStar,

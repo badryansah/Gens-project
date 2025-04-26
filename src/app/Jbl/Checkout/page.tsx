@@ -681,9 +681,6 @@ export default function Checkout() {
                         </label>
                         <FaShoppingCart className="text-blue-600" size={24} />
                       </div>
-                      <p className="text-sm text-black mt-2">
-                        Bayar ketika barang diterima
-                      </p>
                     </motion.div>
                   </motion.div>
 
@@ -697,7 +694,7 @@ export default function Checkout() {
                       <h4 className="font-medium mb-2 text-black">
                         Instruksi Pembayaran:
                       </h4>
-                      <ol className="list-decimal list-inside text-sm space-y-2 text-black">
+                      <ol className="list-decimal list-inside text-sm  text-black">
                         <li>Pilih bank dari pilihan yang tersedia</li>
                         <li>Transfer ke rekening yang ditampilkan</li>
                         <li>Simpan bukti pembayaran</li>

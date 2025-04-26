@@ -1,16 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Navbar from "../Navbar/Page";
 import Frooter from "../Frooter/Page";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
-
 // Define types for our data
 interface ProfileFormData {
   fullName: string;
@@ -266,11 +259,11 @@ const Profile = () => {
   };
 
   const handleViewOrderDetail = (id: string) => {
-    alert("Melihat detail pesanan: ${id}");
+    alert(`Melihat detail pesanan: ${id}`);
   };
 
   const handleBuyAgain = (id: string) => {
-    alert("Membeli kembali dari pesanan: ${id}");
+    alert(`Membeli kembali dari pesanan: ${id}`);
   };
 
   // New address form handlers
@@ -314,15 +307,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {/* Settings button */}
-      <div className="container mx-auto px-4 flex justify-end mt-[-40px]">
-        <button
-          onClick={() => setActiveTab("profile")}
-          className="bg-white text-black px-4 py-2 rounded-md text-sm font-medium shadow-sm hover:bg-gray-50 transition-colors"
-        >
-          Pengaturan
-        </button>
-      </div>
+
       {/* Tab Navigation */}
       <div className="container mx-auto px-4 mt-12 md:mt-8">
         <div className="border-b flex">
@@ -347,16 +332,6 @@ const Profile = () => {
             Keamanan
           </button>
           <button
-            onClick={() => setActiveTab("address")}
-            className={`px-4 py-3 text-sm whitespace-nowrap ${
-              activeTab === "address"
-                ? "border-b-2 border-[#315CEA] text-[#315CEA] font-medium"
-                : "text-black"
-            } transition-colors`}
-          >
-            Alamat
-          </button>
-          <button
             onClick={() => setActiveTab("orders")}
             className={`px-4 py-3 text-sm whitespace-nowrap ${
               activeTab === "orders"
@@ -366,467 +341,343 @@ const Profile = () => {
           >
             Pesanan Saya
           </button>
+          <Link href="/Dashboad/Profileseller" className="w-full">
+            <button
+              onClick={() => setActiveTab("address")}
+              className={`px-4 py-3 text-sm whitespace-nowrap ${
+                activeTab === "address"
+                  ? "border-b-2 border-[#315CEA] text-[#315CEA] font-medium"
+                  : "text-black"
+              } transition-colors`}
+            >
+              Seller Mode
+            </button>
+          </Link>
         </div>
       </div>
       {/* Main Content */}
-      <main className="flex-1 container mx-auto px-4 py-6"></main>
-      {activeTab === "profile" && (
-        <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
-          <div className="p-5 border-b">
-            <h2 className="text-lg font-medium text-black">Informasi Profil</h2>
-            <p className="text-black text-sm">
-              Update informasi profil Anda di sini
-            </p>
-          </div>
-
-          <form className="p-5" onSubmit={handleProfileSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm mb-1 text-black">
-                  Nama Lengkap
-                </label>
-                <input
-                  type="text"
-                  name="fullName"
-                  value={profileForm.fullName}
-                  onChange={handleProfileChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm mb-1 text-black">
-                  Username
-                </label>
-                <div className="flex">
-                  <span className="inline-flex items-center px-3 py-2 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-black text-sm">
-                    @
-                  </span>
-                  <input
-                    type="text"
-                    name="username"
-                    value={profileForm.username}
-                    onChange={handleProfileChange}
-                    className="flex-1 border border-gray-300 rounded-r-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA]"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm mb-1 text-black">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={profileForm.email}
-                  onChange={handleProfileChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm mb-1 text-black">
-                  Nomor Telepon
-                </label>
-                <div className="flex">
-                  <span className="inline-flex items-center px-3 py-2 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-black text-sm">
-                    +62
-                  </span>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={profileForm.phone}
-                    onChange={handleProfileChange}
-                    className="flex-1 border border-gray-300 rounded-r-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA]"
-                  />
-                </div>
-              </div>
-
-              <div className="md:col-span-2">
-                <label className="block text-sm mb-1 text-black">Bio</label>
-                <textarea
-                  rows={4}
-                  name="bio"
-                  value={profileForm.bio}
-                  onChange={handleProfileChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA]"
-                ></textarea>
-              </div>
-            </div>
-
-            <div className="mt-6 flex justify-end space-x-3">
-              <button
-                type="button"
-                onClick={() =>
-                  setProfileForm({
-                    fullName: "Ahmad Rizky",
-                    username: "ahmadrizky",
-                    email: "ahmad.rizky@example.com",
-                    phone: "8123456789",
-                    bio: "Saya adalah penggemar teknologi dan suka berbelanja online.",
-                  })
-                }
-                className="px-4 py-2 border border-gray-300 rounded-md text-sm text-black hover:bg-gray-50 transition-colors"
-              >
-                Batal
-              </button>
-              <button
-                type="submit"
-                className="px-4 py-2 bg-[#315CEA] text-white rounded-md text-sm hover:bg-blue-700 transition-colors"
-              >
-                Simpan Perubahan
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
-      {activeTab === "security" && (
-        <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
-          <div className="p-5 border-b">
-            <h2 className="text-lg font-medium text-black">
-              Pengaturan Keamanan
-            </h2>
-            <p className="text-black text-sm">Jaga akun Anda tetap aman</p>
-          </div>
-
-          <form className="p-5" onSubmit={handleSecuritySubmit}>
-            <div className="space-y-5">
-              <div>
-                <label className="block text-sm mb-1 text-black">
-                  Password Saat Ini
-                </label>
-                <input
-                  type="password"
-                  name="currentPassword"
-                  value={securityForm.currentPassword}
-                  onChange={handleSecurityChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm mb-1 text-black">
-                  Password Baru
-                </label>
-                <input
-                  type="password"
-                  name="newPassword"
-                  value={securityForm.newPassword}
-                  onChange={handleSecurityChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA]"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm mb-1 text-black">
-                  Konfirmasi Password Baru
-                </label>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  value={securityForm.confirmPassword}
-                  onChange={handleSecurityChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA]"
-                />
-              </div>
-            </div>
-
-            <div className="mt-6 flex justify-end space-x-3">
-              <button
-                type="button"
-                onClick={() =>
-                  setSecurityForm({
-                    currentPassword: "",
-                    newPassword: "",
-                    confirmPassword: "",
-                  })
-                }
-                className="px-4 py-2 border border-gray-300 rounded-md text-sm text-black hover:bg-gray-50 transition-colors"
-              >
-                Batal
-              </button>
-              <button
-                type="submit"
-                className="px-4 py-2 bg-[#315CEA] text-white rounded-md text-sm hover:bg-blue-700 transition-colors"
-              >
-                Update Password
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
-      {activeTab === "address" && (
-        <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
-          <div className="p-5 border-b flex justify-between items-center">
-            <div>
-              <h2 className="text-lg font-medium text-black">Alamat Saya</h2>
+      <main className="flex-1 container mx-auto px-4 py-6">
+        {activeTab === "profile" && (
+          <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
+            <div className="p-5 border-b">
+              <h2 className="text-lg font-medium text-black">
+                Informasi Profil
+              </h2>
               <p className="text-black text-sm">
-                Kelola alamat pengiriman Anda
+                Update informasi profil Anda di sini
               </p>
             </div>
-            <button
-              onClick={() => setShowNewAddressForm(true)}
-              className="px-4 py-2 bg-[#315CEA] text-white rounded-md text-sm hover:bg-blue-700 transition-colors "
-            >
-              Tambah Alamat Baru
-            </button>
-          </div>
 
-          <div className="p-5">
-            {showNewAddressForm && (
-              <div className="mb-6 border rounded-lg p-4">
-                <h3 className="font-medium text-black mb-4">
-                  Tambah Alamat Baru
-                </h3>
-                <form onSubmit={handleAddressSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div>
-                      <label className="block text-sm mb-1 text-black">
-                        Simpan Sebagai
-                      </label>
-                      <input
-                        type="text"
-                        name="type"
-                        placeholder="Contoh: Rumah, Kantor, dll."
-                        value={newAddressForm.type}
-                        onChange={handleNewAddressChange}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black"
-                      />
-                    </div>
+            <form className="p-5" onSubmit={handleProfileSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm mb-1 text-black">
+                    Nama Lengkap
+                  </label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={profileForm.fullName}
+                    onChange={handleProfileChange}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black "
+                  />
+                </div>
 
-                    <div>
-                      <label className="block text-sm mb-1 text-black">
-                        Nama Penerima
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={newAddressForm.name}
-                        onChange={handleNewAddressChange}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black  "
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm mb-1 text-black">
-                        Nomor Telepon
-                      </label>
-                      <input
-                        type="text"
-                        name="phone"
-                        value={newAddressForm.phone}
-                        onChange={handleNewAddressChange}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black"
-                      />
-                    </div>
-
-                    <div className="md:col-span-2">
-                      <label className="block text-sm mb-1 text-black">
-                        Alamat Lengkap
-                      </label>
-                      <textarea
-                        rows={3}
-                        name="address"
-                        value={newAddressForm.address}
-                        onChange={handleNewAddressChange}
-                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black"
-                      ></textarea>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-end space-x-3">
-                    <button
-                      type="button"
-                      onClick={() => setShowNewAddressForm(false)}
-                      className="px-4 py-2 border border-gray-300 rounded-md text-sm text-black hover:bg-gray-50 transition-colors"
-                    >
-                      Batal
-                    </button>
-                    <button
-                      type="submit"
-                      className="px-4 py-2 bg-[#315CEA] text-white rounded-md text-sm hover:bg-blue-700 transition-colors"
-                    >
-                      Simpan Alamat
-                    </button>
-                  </div>
-                </form>
-              </div>
-            )}
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {addresses.map((address) => (
-                <div
-                  key={address.id}
-                  className="border rounded-lg p-4 relative hover:shadow-sm transition-shadow"
-                >
-                  {address.isPrimary && (
-                    <div className="absolute top-4 right-4 bg-[#315CEA] text-white text-xs px-2 py-1 rounded-full">
-                      Utama
-                    </div>
-                  )}
-                  <h3 className="font-medium text-black">{address.type}</h3>
-                  <p className="text-sm text-black mt-2">{address.name}</p>
-                  <p className="text-sm text-black">{address.phone}</p>
-                  <p className="text-sm text-black mt-2">{address.address}</p>
-                  <div className="mt-4 flex space-x-2">
-                    <button className="text-[#315CEA] text-sm hover:text-blue-700 transition-colors">
-                      Edit
-                    </button>
-                    <span className="text-gray-300">|</span>
-                    {!address.isPrimary && (
-                      <>
-                        <button
-                          onClick={() => handleSetPrimaryAddress(address.id)}
-                          className="text-[#315CEA] text-sm hover:text-blue-700 transition-colors"
-                        >
-                          Jadikan Utama
-                        </button>
-                        <span className="text-gray-300">|</span>
-                      </>
-                    )}
-                    <button
-                      onClick={() => handleDeleteAddress(address.id)}
-                      className="text-red-500 text-sm hover:text-red-700 transition-colors"
-                    >
-                      Hapus
-                    </button>
+                <div>
+                  <label className="block text-sm mb-1 text-black">
+                    Username
+                  </label>
+                  <div className="flex">
+                    <span className="inline-flex items-center px-3 py-2 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-black text-sm">
+                      @
+                    </span>
+                    <input
+                      type="text"
+                      name="username"
+                      value={profileForm.username}
+                      onChange={handleProfileChange}
+                      className="flex-1 border border-gray-300 rounded-r-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black"
+                    />
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-      {activeTab === "orders" && (
-        <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
-          <div className="p-5 border-b">
-            <h2 className="text-lg font-medium text-black">Pesanan Saya</h2>
-            <p className="text-black text-sm">Lihat dan lacak pesanan Anda</p>
-          </div>
 
-          <div className="p-5">
-            <div className="mb-5 flex flex-wrap gap-2">
-              {[
-                { key: "all", label: "Semua Pesanan" },
-                { key: "unpaid", label: "Belum Bayar" },
-                { key: "packed", label: "Dikemas" },
-                { key: "shipped", label: "Dikirim" },
-                { key: "completed", label: "Selesai" },
-                { key: "canceled", label: "Dibatalkan" },
-              ].map((filter) => (
+                <div>
+                  <label className="block text-sm mb-1 text-black">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={profileForm.email}
+                    onChange={handleProfileChange}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm mb-1 text-black">
+                    Nomor Telepon
+                  </label>
+                  <div className="flex">
+                    <span className="inline-flex items-center px-3 py-2 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-black text-sm">
+                      +62
+                    </span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={profileForm.phone}
+                      onChange={handleProfileChange}
+                      className="flex-1 border border-gray-300 rounded-r-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black  "
+                    />
+                  </div>
+                </div>
+
+                <div className="md:col-span-2">
+                  <label className="block text-sm mb-1 text-black">Bio</label>
+                  <textarea
+                    rows={4}
+                    name="bio"
+                    value={profileForm.bio}
+                    onChange={handleProfileChange}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div className="mt-6 flex justify-end space-x-3">
                 <button
-                  key={filter.key}
-                  onClick={() => handleOrderFilter(filter.key)}
-                  className={`px-4 py-2 ${
-                    orderFilter === filter.key
-                      ? "bg-[#315CEA] text-white"
-                      : "bg-white border border-gray-300 text-black hover:bg-gray-50"
-                  } rounded-md text-sm transition-colors`}
+                  type="button"
+                  onClick={() =>
+                    setProfileForm({
+                      fullName: "Ahmad Rizky",
+                      username: "ahmadrizky",
+                      email: "ahmad.rizky@example.com",
+                      phone: "8123456789",
+                      bio: "Saya adalah penggemar teknologi dan suka berbelanja online.",
+                    })
+                  }
+                  className="px-4 py-2 border border-gray-300 rounded-md text-sm text-black hover:bg-gray-50 transition-colors"
                 >
-                  {filter.label}
+                  Batal
                 </button>
-              ))}
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-[#315CEA] text-white rounded-md text-sm hover:bg-blue-700 transition-colors"
+                >
+                  Simpan Perubahan
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
+        {activeTab === "security" && (
+          <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
+            <div className="p-5 border-b">
+              <h2 className="text-lg font-medium text-black">
+                Pengaturan Keamanan
+              </h2>
+              <p className="text-black text-sm">Jaga akun Anda tetap aman</p>
             </div>
 
-            {/* Filter orders based on selected filter */}
-            {orders
-              .filter(
-                (order) => orderFilter === "all" || order.status === orderFilter
-              )
-              .map((order) => (
-                <div
-                  key={order.id}
-                  className="border rounded-lg p-4 mb-4 hover:shadow-sm transition-shadow"
+            <form className="p-5" onSubmit={handleSecuritySubmit}>
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-sm mb-1 text-black">
+                    Password Saat Ini
+                  </label>
+                  <input
+                    type="password"
+                    name="currentPassword"
+                    value={securityForm.currentPassword}
+                    onChange={handleSecurityChange}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm mb-1 text-black">
+                    Password Baru
+                  </label>
+                  <input
+                    type="password"
+                    name="newPassword"
+                    value={securityForm.newPassword}
+                    onChange={handleSecurityChange}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm mb-1 text-black">
+                    Konfirmasi Password Baru
+                  </label>
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    value={securityForm.confirmPassword}
+                    onChange={handleSecurityChange}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#315CEA] focus:border-[#315CEA] text-black"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-6 flex justify-end space-x-3">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setSecurityForm({
+                      currentPassword: "",
+                      newPassword: "",
+                      confirmPassword: "",
+                    })
+                  }
+                  className="px-4 py-2 border border-gray-300 rounded-md text-sm text-black hover:bg-gray-50 transition-colors"
                 >
-                  <div className="flex justify-between items-start mb-3">
-                    <div>
-                      <span className="text-xs text-black">{order.date}</span>
-                      <span className="text-xs text-black mx-2">•</span>
-                      <span className="text-xs font-medium text-[#315CEA]">
-                        {order.id}
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-[#315CEA] text-white rounded-md text-sm hover:bg-blue-700 transition-colors text-black"
+                >
+                  Update Password
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
+
+        {activeTab === "orders" && (
+          <div className="bg-white rounded-lg shadow-sm border overflow-hidden">
+            <div className="p-5 border-b">
+              <h2 className="text-lg font-medium text-black">Pesanan Saya</h2>
+              <p className="text-black text-sm">Lihat dan lacak pesanan Anda</p>
+            </div>
+
+            <div className="p-5">
+              <div className="mb-5 flex flex-wrap gap-2">
+                {[
+                  { key: "all", label: "Semua Pesanan" },
+                  { key: "unpaid", label: "Belum Bayar" },
+                  { key: "packed", label: "Dikemas" },
+                  { key: "shipped", label: "Dikirim" },
+                  { key: "completed", label: "Selesai" },
+                  { key: "canceled", label: "Dibatalkan" },
+                ].map((filter) => (
+                  <button
+                    key={filter.key}
+                    onClick={() => handleOrderFilter(filter.key)}
+                    className={`px-4 py-2 ${
+                      orderFilter === filter.key
+                        ? "bg-[#315CEA] text-white"
+                        : "bg-white border border-gray-300 text-black hover:bg-gray-50"
+                    } rounded-md text-sm transition-colors`}
+                  >
+                    {filter.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Filter orders based on selected filter */}
+              {orders
+                .filter(
+                  (order) =>
+                    orderFilter === "all" || order.status === orderFilter
+                )
+                .map((order) => (
+                  <div
+                    key={order.id}
+                    className="border rounded-lg p-4 mb-4 hover:shadow-sm transition-shadow"
+                  >
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <span className="text-xs text-black">{order.date}</span>
+                        <span className="text-xs text-black mx-2">•</span>
+                        <span className="text-xs font-medium text-[#315CEA]">
+                          {order.id}
+                        </span>
+                      </div>
+                      <span
+                        className={`${
+                          order.status === "shipping"
+                            ? "bg-blue-100 text-[#315CEA]"
+                            : order.status === "completed"
+                            ? "bg-green-100 text-green-600"
+                            : order.status === "canceled"
+                            ? "bg-red-100 text-red-600"
+                            : "bg-yellow-100 text-yellow-600"
+                        } text-xs px-2 py-1 rounded-full`}
+                      >
+                        {order.statusText}
                       </span>
                     </div>
-                    <span
-                      className={`${
-                        order.status === "shipping"
-                          ? "bg-blue-100 text-[#315CEA]"
-                          : order.status === "completed"
-                          ? "bg-green-100 text-green-600"
-                          : order.status === "canceled"
-                          ? "bg-red-100 text-red-600"
-                          : "bg-yellow-100 text-yellow-600"
-                      } text-xs px-2 py-1 rounded-full`}
-                    >
-                      {order.statusText}
-                    </span>
-                  </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-gray-100 rounded-md overflow-hidden">
-                      <img
-                        src={order.items[0].image}
-                        alt="Product"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-medium text-black">
-                        {order.items[0].name}
-                      </h4>
-                      <p className="text-sm text-black">
-                        {order.items[0].quantity} x Rp{" "}
-                        {order.items[0].price.toLocaleString("id-ID")}
-                      </p>
-                      {order.additionalItems > 0 && (
-                        <p className="text-sm text-black mt-1">
-                          + {order.additionalItems} produk lainnya
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 bg-gray-100 rounded-md overflow-hidden">
+                        <img
+                          src={order.items[0].image}
+                          alt="Product"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-medium text-black">
+                          {order.items[0].name}
+                        </h4>
+                        <p className="text-sm text-black">
+                          {order.items[0].quantity} x Rp{" "}
+                          {order.items[0].price.toLocaleString("id-ID")}
                         </p>
-                      )}
+                        {order.additionalItems > 0 && (
+                          <p className="text-sm text-black mt-1">
+                            + {order.additionalItems} produk lainnya
+                          </p>
+                        )}
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-black">Total Belanja</p>
+                        <p className="font-bold text-black">
+                          Rp {order.total.toLocaleString("id-ID")}
+                        </p>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-sm text-black">Total Belanja</p>
-                      <p className="font-bold text-black">
-                        Rp {order.total.toLocaleString("id-ID")}
-                      </p>
-                    </div>
-                  </div>
 
-                  <div className="mt-4 pt-3 border-t flex justify-between items-center">
-                    <button
-                      onClick={() => handleViewOrderDetail(order.id)}
-                      className="text-[#315CEA] text-sm hover:text-blue-700 transition-colors"
-                    >
-                      Lihat Detail
-                    </button>
-                    {order.status === "shipping" ? (
+                    <div className="mt-4 pt-3 border-t flex justify-between items-center">
                       <button
-                        onClick={() => handleTrackOrder(order.id)}
-                        className="px-4 py-2 bg-[#315CEA] text-white rounded-md text-sm hover:bg-blue-700 transition-colors"
+                        onClick={() => handleViewOrderDetail(order.id)}
+                        className="text-[#315CEA] text-sm hover:text-blue-700 transition-colors"
                       >
-                        Lacak Pesanan
+                        Lihat Detail
                       </button>
-                    ) : order.status === "completed" ? (
-                      <button
-                        onClick={() => handleBuyAgain(order.id)}
-                        className="px-4 py-2 border border-[#315CEA] text-[#315CEA] rounded-md text-sm hover:bg-blue-50 transition-colors"
-                      >
-                        Beli Lagi
-                      </button>
-                    ) : null}
+                      {order.status === "shipping" ? (
+                        <button
+                          onClick={() => handleTrackOrder(order.id)}
+                          className="px-4 py-2 bg-[#315CEA] text-white rounded-md text-sm hover:bg-blue-700 transition-colors"
+                        >
+                          Lacak Pesanan
+                        </button>
+                      ) : order.status === "completed" ? (
+                        <button
+                          onClick={() => handleBuyAgain(order.id)}
+                          className="px-4 py-2 border border-[#315CEA] text-[#315CEA] rounded-md text-sm hover:bg-blue-50 transition-colors"
+                        >
+                          Beli Lagi
+                        </button>
+                      ) : null}
+                    </div>
                   </div>
+                ))}
+
+              {orders.filter(
+                (order) => orderFilter === "all" || order.status === orderFilter
+              ).length === 0 && (
+                <div className="text-center py-10">
+                  <p className="text-black">Tidak ada pesanan yang ditemukan</p>
                 </div>
-              ))}
-
-            {orders.filter(
-              (order) => orderFilter === "all" || order.status === orderFilter
-            ).length === 0 && (
-              <div className="text-center py-10">
-                <p className="text-black">Tidak ada pesanan yang ditemukan</p>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-        </div>
-      )}
-      ;{/* Footer */}
+        )}
+      </main>
+
+      {/* Footer */}
       <Frooter />
     </div>
   );
