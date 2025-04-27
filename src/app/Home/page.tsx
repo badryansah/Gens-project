@@ -262,7 +262,7 @@ function Home() {
               <Image
                 src={banners[currentBannerIndex]}
                 alt="Banner"
-                className="w-full h-[200px] sm:h-[300px] md:h-[450px] object-cover transform transition duration-700 group-hover:scale-105"
+                className="w-full h-[200px] sm:h-[300px] md:h-[450px] object-cover transform transition duration-700 group-hover:scale-105 "
                 width={1200}
                 height={450}
                 priority

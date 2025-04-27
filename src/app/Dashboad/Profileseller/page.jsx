@@ -1,11 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  IoMenuOutline,
-  IoCloseOutline,
-  IoCloudUploadOutline,
-} from "react-icons/io5";
+import { IoCloudUploadOutline } from "react-icons/io5";
 import {
   FaFacebookF,
   FaTwitter,
@@ -287,7 +283,7 @@ function Dashboard() {
                     >
                       <Link href="/Tambahp">
                         <motion.button
-                          className="px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-lg font-medium transition-colors duration-200"
+                          className="px-6 py-3 bg-gray-700 hover:bg-gray-500 rounded-lg font-medium transition-colors duration-200"
                           variants={buttonVariants}
                           initial="rest"
                           whileHover="hover"

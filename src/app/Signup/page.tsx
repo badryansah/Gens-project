@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 function Sign() {
   // Animation states
   const [isVisible, setIsVisible] = useState(false);
+  // User type state (buyer or seller)
+  const [userType, setUserType] = useState("buyer"); // Default to buyer
 
   useEffect(() => {
     // Set animation visible after component mounts
@@ -134,22 +136,84 @@ function Sign() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
+                {/* User Type Selection */}
+                <div className="flex space-x-4 mb-2">
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="userType"
+                      value="buyer"
+                      checked={userType === "buyer"}
+                      onChange={() => setUserType("buyer")}
+                      className="mr-2"
+                    />
+                    <span className="text-sm font-medium">Buyer</span>
+                  </label>
+
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="userType"
+                      value="seller"
+                      checked={userType === "seller"}
+                      onChange={() => setUserType("seller")}
+                      className="mr-2"
+                    />
+                    <span className="text-sm font-medium">Seller</span>
+                  </label>
+                </div>
+
+                {/* Buyer Name field - enabled only when userType is buyer */}
                 <motion.div
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
+                  whileHover={{ scale: userType === "buyer" ? 1.01 : 1 }}
+                  whileTap={{ scale: userType === "buyer" ? 0.99 : 1 }}
                 >
                   <label
-                    htmlFor="name"
-                    className="block text-sm font-semibold text-black mb-1 sm:mb-2"
+                    htmlFor="buyerName"
+                    className={`block text-sm font-semibold mb-1 sm:mb-2 ${
+                      userType === "buyer" ? "text-black" : "text-gray-400"
+                    }`}
                   >
-                    Name
+                    Buyer Name
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    className="w-full border border-gray-300 rounded-lg p-2 sm:p-3 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300 transition duration-200 text-base text-black"
+                    id="buyerName"
+                    className={`w-full border rounded-lg p-2 sm:p-3 focus:outline-none transition duration-200 text-base ${
+                      userType === "buyer"
+                        ? "border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-300 text-black"
+                        : "border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed"
+                    }`}
                     placeholder="Enter your name"
-                    required
+                    required={userType === "buyer"}
+                    disabled={userType !== "buyer"}
+                  />
+                </motion.div>
+
+                {/* Store Name field - enabled only when userType is seller */}
+                <motion.div
+                  whileHover={{ scale: userType === "seller" ? 1.01 : 1 }}
+                  whileTap={{ scale: userType === "seller" ? 0.99 : 1 }}
+                >
+                  <label
+                    htmlFor="storeName"
+                    className={`block text-sm font-semibold mb-1 sm:mb-2 ${
+                      userType === "seller" ? "text-black" : "text-gray-400"
+                    }`}
+                  >
+                    Store Name
+                  </label>
+                  <input
+                    type="text"
+                    id="storeName"
+                    className={`w-full border rounded-lg p-2 sm:p-3 focus:outline-none transition duration-200 text-base ${
+                      userType === "seller"
+                        ? "border-gray-300 focus:ring-2 focus:ring-blue-200 focus:border-blue-300 text-black"
+                        : "border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed"
+                    }`}
+                    placeholder="Enter your store name"
+                    required={userType === "seller"}
+                    disabled={userType !== "seller"}
                   />
                 </motion.div>
 
@@ -204,23 +268,24 @@ function Sign() {
                     Create Account
                   </motion.button>
                 </Link>
-
-                <motion.button
-                  type="button"
-                  className="w-full bg-gray-100 border border-gray-300 text-black py-2 sm:py-3 rounded-lg flex justify-center items-center gap-3 transition duration-200 hover:bg-gray-50 font-medium text-base"
-                  whileHover={{ scale: 1.02, backgroundColor: "#f5f5f5" }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3, delay: 1.2 }}
-                >
-                  <Image
-                    src={GoogleLogo}
-                    alt="Google Icon"
-                    className="w-5 h-5"
-                  />
-                  Sign up with Google
-                </motion.button>
+                <Link href="/404Eror" className="block w-full">
+                  <motion.button
+                    type="button"
+                    className="w-full bg-gray-100 border border-gray-300 text-black py-2 sm:py-3 rounded-lg flex justify-center items-center gap-3 transition duration-200 hover:bg-gray-50 font-medium text-base"
+                    whileHover={{ scale: 1.02, backgroundColor: "#f5f5f5" }}
+                    whileTap={{ scale: 0.98 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, delay: 1.2 }}
+                  >
+                    <Image
+                      src={GoogleLogo}
+                      alt="Google Icon"
+                      className="w-5 h-5"
+                    />
+                    Sign up with Google
+                  </motion.button>
+                </Link>
               </motion.form>
 
               <motion.p

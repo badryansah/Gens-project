@@ -241,14 +241,15 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-2 md:gap-4">
+              {/* Favorites - show only on desktop */}
               <Link href="/Barangfavorite" className="hidden md:block">
                 <button className="text-black">
                   <IoHeartOutline className="text-2xl" />
                 </button>
               </Link>
 
-              {/* Cart  */}
-              <div className="relative" ref={cartDropdownRef}>
+              {/* Cart - show only on desktop */}
+              <div className="relative hidden md:block" ref={cartDropdownRef}>
                 <Link href={isMobile ? "/Keranjang2" : "#"}>
                   <button
                     className="relative text-black p-1.5"
@@ -340,7 +341,8 @@ const Navbar = () => {
                 )}
               </div>
 
-              <div className="flex space-x-2">
+              {/* Auth buttons - show only on desktop */}
+              <div className="hidden md:flex space-x-2">
                 <Link href="/Signup">
                   <button className="px-4 py-1.5 bg-[#315CEA] text-white rounded-full text-sm">
                     Sign Up
@@ -353,7 +355,8 @@ const Navbar = () => {
                 </Link>
               </div>
 
-              <Link href="/Profile">
+              {/* Profile - show only on desktop */}
+              <Link href="/Profile" className="hidden md:block">
                 <button className="text-black">
                   <IoPersonOutline className="text-xl md:text-2xl" />
                 </button>
@@ -363,12 +366,12 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile  */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden">
           <div className="bg-white h-full w-3/4 max-w-xs p-4 transform animate-slide-in">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold text-black">Categories</h2>
+              <h2 className="text-xl font-bold text-black">Menu</h2>
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-gray-500 focus:outline-none"
@@ -377,16 +380,59 @@ const Navbar = () => {
               </button>
             </div>
 
-            <ul className="space-y-4">
-              <li className="border-b border-gray-100 pb-2">
+            {/* Auth buttons in mobile menu */}
+            <div className="flex space-x-2 mb-6">
+              <Link href="/Signup" className="flex-1">
+                <button className="w-full px-4 py-2 bg-[#315CEA] text-white rounded-full text-sm">
+                  Sign Up
+                </button>
+              </Link>
+              <Link href="/login" className="flex-1">
+                <button className="w-full px-4 py-2 bg-[#315CEA] text-white rounded-full text-sm">
+                  Login
+                </button>
+              </Link>
+            </div>
+
+            {/* Profile section in mobile menu */}
+            <div className="mb-6 border-b border-gray-100 pb-4">
+              <Link href="/Profile">
+                <div className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-md">
+                  <IoPersonOutline className="text-xl text-gray-700" />
+                  <span className="text-black">Profil Saya</span>
+                </div>
+              </Link>
+            </div>
+
+            {/* Cart section in mobile menu */}
+            <div className="mb-6 border-b border-gray-100 pb-4">
+              <Link href="/Keranjang2">
+                <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md">
+                  <div className="flex items-center space-x-3">
+                    <IoCartOutline className="text-xl text-gray-700" />
+                    <span className="text-black">Keranjang</span>
+                  </div>
+                  {itemCount > 0 && (
+                    <span className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                      {itemCount}
+                    </span>
+                  )}
+                </div>
+              </Link>
+            </div>
+
+            {/* Categories */}
+            <h3 className="font-medium text-gray-800 mb-2">Kategori</h3>
+            <ul className="space-y-2 mb-6 border-b border-gray-100 pb-4">
+              <li>
                 <Link href="/Home">
-                  <div className="flex items-center justify-between p-2 hover:bg-gray-50  text-black">
+                  <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
                     <span>Home</span>
                     <IoChevronForward className="text-gray-400" />
                   </div>
                 </Link>
               </li>
-              <li className="border-b border-gray-100 pb-2">
+              <li>
                 <Link href="/Fashion">
                   <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
                     <span>Fashion</span>
@@ -394,7 +440,7 @@ const Navbar = () => {
                   </div>
                 </Link>
               </li>
-              <li className="border-b border-gray-100 pb-2">
+              <li>
                 <Link href="/Gadget">
                   <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
                     <span>Gadget</span>
@@ -402,7 +448,7 @@ const Navbar = () => {
                   </div>
                 </Link>
               </li>
-              <li className="border-b border-gray-100 pb-2">
+              <li>
                 <Link href="/aksesoris">
                   <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
                     <span>Aksesoris</span>
@@ -410,7 +456,7 @@ const Navbar = () => {
                   </div>
                 </Link>
               </li>
-              <li className="border-b border-gray-100 pb-2">
+              <li>
                 <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
                   <span>Lainnya</span>
                   <IoChevronForward className="text-gray-400" />
@@ -418,7 +464,8 @@ const Navbar = () => {
               </li>
             </ul>
 
-            <div className="mt-6 space-y-4">
+            {/* Additional menu items */}
+            <div className="space-y-4">
               <h3 className="font-medium text-gray-800">
                 Bantuan & Pengaturan
               </h3>
@@ -431,9 +478,10 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/favorit">
-                    <div className="p-2 hover:bg-gray-50 rounded-md text-gray-600">
-                      Barang Favorit
+                  <Link href="/Barangfavorite">
+                    <div className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-md text-gray-600">
+                      <IoHeartOutline className="text-lg" />
+                      <span>Barang Favorit</span>
                     </div>
                   </Link>
                 </li>
@@ -441,6 +489,13 @@ const Navbar = () => {
                   <Link href="/pesanan">
                     <div className="p-2 hover:bg-gray-50 rounded-md text-gray-600">
                       Riwayat Pesanan
+                    </div>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/pengaturan">
+                    <div className="p-2 hover:bg-gray-50 rounded-md text-gray-600">
+                      Pengaturan
                     </div>
                   </Link>
                 </li>
