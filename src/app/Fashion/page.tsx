@@ -105,7 +105,7 @@ function Fashion() {
         transition: { duration: 0.2 },
       }}
     >
-      <Link href={`/product/${item.slug || "detail"}`} className="block h-full">
+      <Link href={`/Detail/${item.slug || "detail"}`} className="block h-full">
         <div className="bg-white rounded-sm border border-gray-100 p-3 md:p-4 h-full transform transition-transform duration-200 hover:shadow-lg">
           <div className="relative">
             <Image

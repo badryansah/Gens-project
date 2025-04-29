@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./404Eror/page";
+import Home from "./Home/page";
 function page() {
   return (
     <>

@@ -627,7 +627,7 @@ function Home() {
             animate={isVisible.thisMonth ? "visible" : "hidden"}
             variants={staggerContainer}
             ref={thisMonthRef}
-            className="grid grid-flow-col auto-cols-[80%] sm:auto-cols-[45%] md:grid-cols-4 gap-4 md:gap-6 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar"
+            className="grid grid-flow-col auto-cols-[80%] sm:auto-cols-[45%] md:grid-cols-5 gap-4 md:gap-6 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar"
           >
             {[
               {
@@ -656,6 +656,14 @@ function Home() {
               },
               {
                 img: foto9,
+                name: "Small BookSelf",
+                price: "399",
+                originalPrice: null,
+                rating: 5,
+                reviews: 65,
+              },
+              {
+                img: foto10,
                 name: "Small BookSelf",
                 price: "399",
                 originalPrice: null,
@@ -1798,7 +1806,9 @@ function Home() {
                   whileHover={{ x: 8 }}
                   className="flex items-center text-white hover:underline font-medium group"
                 >
-                  <span>Shop Now</span>
+                  <Link href="/404Eror">
+                    <span>Shop Now</span>
+                  </Link>
                   <motion.span
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
@@ -1862,7 +1872,9 @@ function Home() {
                     whileHover={{ x: 8 }}
                     className="flex items-center text-black hover:underline font-medium group"
                   >
-                    <span>Shop Now</span>
+                    <Link href="/404Eror">
+                      <span>Shop Now</span>
+                    </Link>
                     <motion.span
                       animate={{ x: [0, 5, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
@@ -1940,7 +1952,9 @@ function Home() {
                       whileHover={{ x: 5 }}
                       className="flex items-center text-black hover:underline font-medium group"
                     >
-                      <span>Shop Now</span>
+                      <Link href="/404Eror">
+                        <span>Shop Now</span>
+                      </Link>
                       <motion.span
                         animate={{ x: [0, 3, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
@@ -1998,7 +2012,9 @@ function Home() {
                       whileHover={{ x: 5 }}
                       className="flex items-center text-black hover:underline font-medium group"
                     >
-                      <span>Shop Now</span>
+                      <Link href="/404Eror">
+                        <span>Shop Now</span>
+                      </Link>
                       <motion.span
                         animate={{ x: [0, 3, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
