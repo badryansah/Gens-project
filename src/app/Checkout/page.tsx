@@ -651,39 +651,6 @@ export default function Checkout() {
                         />
                       </div>
                     </motion.div>
-
-                    <motion.div
-                      className={`border ${
-                        paymentMethod === "COD"
-                          ? "border-blue-600 bg-blue-50"
-                          : "border-gray-300"
-                      } p-4 rounded-lg cursor-pointer`}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setPaymentMethod("COD")}
-                    >
-                      <div className="flex items-center space-x-3">
-                        <input
-                          type="radio"
-                          id="cod"
-                          name="payment"
-                          value="COD"
-                          checked={paymentMethod === "COD"}
-                          onChange={() => setPaymentMethod("COD")}
-                          className="accent-blue-600 w-5 h-5"
-                        />
-                        <label
-                          htmlFor="cod"
-                          className="font-medium flex-1 text-black"
-                        >
-                          EWallet
-                        </label>
-                        <FaShoppingCart className="text-blue-600" size={24} />
-                      </div>
-                      <p className="text-sm text-black mt-2">
-                        Bayar ketika barang diterima
-                      </p>
-                    </motion.div>
                   </motion.div>
 
                   {paymentMethod === "Bank" && (

@@ -166,9 +166,11 @@ const Detail = () => {
 
             {/* Action Buttons - Full width on mobile */}
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <button className="bg-gray-200 hover:bg-gray-300 text-black font-medium px-6 py-3 rounded-md transition-colors flex-1 flex items-center justify-center">
-                <IoCartOutline className="mr-2" /> Keranjang
-              </button>
+              <Link href="/Keranjang2">
+                <button className="bg-gray-200 hover:bg-gray-300 text-black font-medium px-6 py-3 rounded-md transition-colors flex-1 flex items-center justify-center">
+                  <IoCartOutline className="mr-2" /> Keranjang
+                </button>
+              </Link>
               <Link href="/Keranjang" className="flex-1">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full font-medium transition-colors">
                   Pesan Sekarang

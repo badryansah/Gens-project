@@ -281,7 +281,7 @@ function Dashboard() {
                       className="flex justify-end gap-4 mt-8"
                       variants={itemVariants}
                     >
-                      <Link href="/Tambahp">
+                      <Link href="/Home">
                         <motion.button
                           className="px-6 py-3 bg-gray-700 hover:bg-gray-500 rounded-lg font-medium transition-colors duration-200"
                           variants={buttonVariants}

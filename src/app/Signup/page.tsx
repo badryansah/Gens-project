@@ -268,7 +268,7 @@ function Sign() {
                     Create Account
                   </motion.button>
                 </Link>
-                <Link href="/404Eror" className="block w-full">
+                {/* <Link href="/404Eror" className="block w-full">
                   <motion.button
                     type="button"
                     className="w-full bg-gray-100 border border-gray-300 text-black py-2 sm:py-3 rounded-lg flex justify-center items-center gap-3 transition duration-200 hover:bg-gray-50 font-medium text-base"
@@ -285,7 +285,7 @@ function Sign() {
                     />
                     Sign up with Google
                   </motion.button>
-                </Link>
+                </Link> */}
               </motion.form>
 
               <motion.p
