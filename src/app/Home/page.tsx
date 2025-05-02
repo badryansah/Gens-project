@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Navbar from "../Navbar/Page";
-import Frooter from "../Frooter/Page";
+import Navbar from "../Components/Navbar/Page";
+import Frooter from "../Components/Frooter/Page";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -493,7 +493,7 @@ function Home() {
                     transition={{ duration: 0.3 }}
                     className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3"
                   >
-                    <Link href="/Detail" className="w-full">
+                    <Link href="Pages/Detailproduk" className="w-full">
                       <button className="w-full py-2 bg-white text-black rounded-full text-xs md:text-sm font-medium transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center gap-1">
                         <span>View Details</span>
                         <IoChevronForward />
@@ -534,7 +534,7 @@ function Home() {
                       </span>
                     </div>
                   </div>
-                  <Link href="/Detail" className="w-full">
+                  <Link href="Pages/Detailproduk" className="w-full">
                     <motion.button
                       whileHover={{ scale: 1.03 }}
                       whileTap={{ scale: 0.97 }}
@@ -1510,7 +1510,7 @@ function Home() {
                   whileHover={{ x: 5 }}
                   className="flex items-center text-white hover:underline font-medium text-sm group"
                 >
-                  <Link href="/Detail" className="w-full">
+                  <Link href="Pages/Detailproduk" className="w-full">
                     <span>Shop Now</span>
                   </Link>
                   <motion.span
@@ -1562,7 +1562,7 @@ function Home() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="text-lg font-bold text-black mb-1"
+                  className="text-lg font-bold text-white mb-1"
                 >
                   Women's watches
                 </motion.h3>
@@ -1642,7 +1642,7 @@ function Home() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                     whileHover={{ x: 5 }}
-                    className="flex items-center text-black hover:underline font-medium text-sm group"
+                    className="flex items-center text-white hover:underline font-medium group"
                   >
                     <span>Shop Now</span>
                     <motion.span
@@ -1806,7 +1806,7 @@ function Home() {
                   whileHover={{ x: 8 }}
                   className="flex items-center text-white hover:underline font-medium group"
                 >
-                  <Link href="/404Eror">
+                  <Link href="/Detailprodukjapan/Ps5">
                     <span>Shop Now</span>
                   </Link>
                   <motion.span
@@ -1844,24 +1844,24 @@ function Home() {
 
             {/* Right Column */}
             <div className="md:col-span-5 flex flex-col gap-6">
-              {/* Women's Watches */}
+              {/* Left Column - PS5 */}
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, x: -50 }}
                 animate={
                   isVisible.featuredProducts
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 50 }
+                    ? { opacity: 1, x: 0 }
+                    : { opacity: 0, x: -50 }
                 }
-                transition={{ duration: 0.6, delay: 0.2 }}
-                whileHover={{ scale: 1.02 }}
-                className="relative bg-gradient-to-r from-blue-400 to-gray-200 rounded-xl overflow-hidden h-[250px] lg:h-[300px] shadow-lg group"
+                transition={{ duration: 0.6, delay: 0.1 }}
+                whileHover={{ scale: 1.01 }}
+                className="relative bg-gradient-to-r from-emerald-400 via-sky-400 to-indigo-500 rounded-2xl overflow-hidden md:col-span-7 h-[400px] lg:h-[500px] xl:h-[600px] shadow-lg group"
               >
                 <div className="absolute top-0 left-0 p-6 z-10 max-w-[60%]">
                   <motion.h3
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-xl font-bold text-black mb-2"
+                    className="text-xl font-bold text-white mb-2"
                   >
                     Women's watches
                   </motion.h3>
@@ -1870,9 +1870,9 @@ function Home() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                     whileHover={{ x: 8 }}
-                    className="flex items-center text-black hover:underline font-medium group"
+                    className="flex items-center text-white hover:underline font-medium group"
                   >
-                    <Link href="/404Eror">
+                    <Link href="/Detailprodukjapan/Jam">
                       <span>Shop Now</span>
                     </Link>
                     <motion.span

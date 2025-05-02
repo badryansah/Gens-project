@@ -255,7 +255,7 @@ function Sign() {
                   />
                 </motion.div>
 
-                <Link href="/login" className="block w-full">
+                <Link href="login/" className="block w-full">
                   <motion.button
                     type="button"
                     className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 sm:py-3 rounded-lg transition duration-200 shadow-md hover:shadow-lg font-semibold text-base"
@@ -296,7 +296,7 @@ function Sign() {
               >
                 Already have an account?{" "}
                 <Link
-                  href="/login"
+                  href="login/"
                   className="text-blue-500 hover:underline font-medium"
                 >
                   <motion.span whileHover={{ scale: 1.05, color: "#2563EB" }}>

@@ -15,7 +15,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Tentang Kami
@@ -23,7 +23,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Visi & Misi
@@ -31,7 +31,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Karir
@@ -39,7 +39,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Blog
@@ -47,7 +47,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Solusi Logistik
@@ -63,7 +63,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Promo Terbaru
@@ -71,7 +71,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Layanan Pengiriman
@@ -79,7 +79,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Pengiriman Internasional
@@ -87,7 +87,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Cek Ongkir
@@ -103,7 +103,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Bantuan Pelanggan
@@ -111,7 +111,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   FAQ
@@ -119,7 +119,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Syarat dan Ketentuan
@@ -127,7 +127,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/404Eror"
+                  href="404eror/"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Kebijakan Privasi

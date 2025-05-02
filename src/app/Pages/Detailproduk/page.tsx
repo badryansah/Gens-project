@@ -1,26 +1,26 @@
 "use client";
 import React, { useState } from "react";
-import {
-  FaTruck,
-  FaCreditCard,
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaTruck, FaCreditCard } from "react-icons/fa";
 import { IoCartOutline, IoChevronDown, IoChevronUp } from "react-icons/io5";
 import Navbar from "../../Components/Navbar/Page";
+import Frooter from "../../Components/Frooter/Page";
 import Image from "next/image";
 import Link from "next/link";
-import speaker from "@/app/aset/speaker.png";
 import sps5 from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
+import props5 from "@/app/aset/ps5 pro controller.webp";
+import ps6 from "@/app/aset/ps6controller.webp";
+import chs6 from "@/app/aset/charger.jpg";
 import LCDMonitor from "@/app/aset/monitor.png";
 import parfum from "@/app/aset/assetHome/2.png";
 import ps5 from "@/app/aset/assetHome/3.png";
 
 const Detail = () => {
   const [quantity, setQuantity] = useState(1);
-  const [currentImage, setCurrentImage] = useState(speaker);
+  const [selectedColor, setSelectedColor] = useState("black");
+  const [selectedSize, setSelectedSize] = useState("M");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(sps5);
 
   const colors = [
     { name: "Black", value: "black" },
@@ -36,7 +36,7 @@ const Detail = () => {
       <main className="container mx-auto p-4 sm:p-6 bg-white shadow-md mt-4 sm:mt-6">
         {/* Product detail section - Responsive grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Product images - Main image only, thumbnails removed */}
+          {/* Product images - With touch-friendly gallery */}
           <div className="px-2 sm:px-0">
             <div className="relative w-full h-64 sm:h-80 md:h-96">
               <Image
@@ -47,30 +47,94 @@ const Detail = () => {
                 className="rounded-md"
               />
             </div>
-            {/* Thumbnail gallery has been removed */}
+            <div className="flex gap-2 mt-4 overflow-x-auto pb-2 snap-x">
+              <div
+                className="snap-center shrink-0 cursor-pointer"
+                onClick={() => setCurrentImage(sps5)}
+              >
+                <Image
+                  src={sps5}
+                  alt="Gamepad Main"
+                  width={80}
+                  height={80}
+                  className={`rounded-md border-2 ${
+                    currentImage === sps5
+                      ? "border-blue-500"
+                      : "border-transparent hover:border-blue-300"
+                  }`}
+                />
+              </div>
+              <div
+                className="snap-center shrink-0 cursor-pointer"
+                onClick={() => setCurrentImage(props5)}
+              >
+                <Image
+                  src={props5}
+                  alt="Gamepad Side 1"
+                  width={80}
+                  height={80}
+                  className={`rounded-md border-2 ${
+                    currentImage === props5
+                      ? "border-blue-500"
+                      : "border-transparent hover:border-blue-300"
+                  }`}
+                />
+              </div>
+              <div
+                className="snap-center shrink-0 cursor-pointer"
+                onClick={() => setCurrentImage(ps6)}
+              >
+                <Image
+                  src={ps6}
+                  alt="Gamepad Side 2"
+                  width={80}
+                  height={80}
+                  className={`rounded-md border-2 ${
+                    currentImage === ps6
+                      ? "border-blue-500"
+                      : "border-transparent hover:border-blue-300"
+                  }`}
+                />
+              </div>
+              <div
+                className="snap-center shrink-0 cursor-pointer"
+                onClick={() => setCurrentImage(chs6)}
+              >
+                <Image
+                  src={chs6}
+                  alt="Gamepad Side 3"
+                  width={80}
+                  height={80}
+                  className={`rounded-md border-2 ${
+                    currentImage === chs6
+                      ? "border-blue-500"
+                      : "border-transparent hover:border-blue-300"
+                  }`}
+                />
+              </div>
+            </div>
           </div>
 
           {/* Product details - Better spacing and typography for mobile */}
           <div className="px-2 sm:px-0">
             <h2 className="text-xl sm:text-2xl font-semibold text-black">
-              Jbl Speaker
+              Stick Controller
             </h2>
             <p className="text-yellow-500 flex items-center text-sm sm:text-base my-2">
               ⭐⭐⭐⭐ <span className="ml-1">4.5 (120 reviews)</span>
             </p>
             <div className="flex items-center gap-3 mt-2">
               <p className="text-xl sm:text-2xl font-bold text-gray-800">
-                $112.00
+                $462.00
               </p>
-              <span className="line-through text-black text-sm">$150</span>
+              <span className="line-through text-black text-sm">$600.00</span>
               <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full">
-                -20%
+                -23%
               </span>
             </div>
             <p className="text-black mt-4 text-sm sm:text-base">
-              Hadirkan suasana pesta ke mana pun kamu pergi dengan JBL Pulse,
-              speaker portabel yang memadukan kualitas suara khas JBL dengan
-              pertunjukan cahaya LED yang memukau.
+              Wireless gaming controller with high-speed response and ergonomic
+              design.
             </p>
 
             {/* Divider */}
@@ -102,9 +166,11 @@ const Detail = () => {
 
             {/* Action Buttons - Full width on mobile */}
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <button className="bg-gray-200 hover:bg-gray-300 text-black font-medium px-6 py-3 rounded-md transition-colors flex-1 flex items-center justify-center">
-                <IoCartOutline className="mr-2" /> Keranjang
-              </button>
+              <Link href="Keranjang2/">
+                <button className="bg-gray-200 hover:bg-gray-300 text-black font-medium px-6 py-3 rounded-md transition-colors flex-1 flex items-center justify-center">
+                  <IoCartOutline className="mr-2" /> Keranjang
+                </button>
+              </Link>
               <Link href="Keranjang/" className="flex-1">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full font-medium transition-colors">
                   Pesan Sekarang
@@ -140,11 +206,9 @@ const Detail = () => {
             <h3 className="text-lg sm:text-xl font-semibold text-black">
               You may also like
             </h3>
-            <Link href="/Home" className="text-blue-600 font-medium text-sm">
-              <button className="text-blue-600 font-medium text-sm">
-                Lihat Semua
-              </button>
-            </Link>
+            <button className="text-blue-600 font-medium text-sm">
+              Lihat Semua
+            </button>
           </div>
 
           <div className="flex overflow-x-auto gap-4 pb-4 snap-x text-black">
@@ -171,7 +235,7 @@ const Detail = () => {
                 name: "Controller Ps 5",
                 price: "$70.00",
                 original: "$85.00",
-                image: sps5,
+                image: props5,
               },
             ].map((item, index) => (
               <div
@@ -203,87 +267,10 @@ const Detail = () => {
       </main>
 
       {/* Footer - Simplified and more responsive */}
-      <footer className="bg-white text-black py-6 sm:py-10 mt-6">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {/* Accordion style for mobile */}
-            <FooterSection
-              title="Tentang Grip.com"
-              links={[
-                { href: "/about", label: "Tentang Kami" },
-                { href: "/karir", label: "Karir" },
-                { href: "/blog", label: "Blog" },
-                { href: "/press", label: "Press" },
-              ]}
-            />
-
-            <FooterSection
-              title="Promo & Layanan"
-              links={[
-                { href: "/promo", label: "Promo" },
-                { href: "/layanan", label: "Layanan" },
-                { href: "/syarat-ketentuan", label: "Syarat & Ketentuan" },
-                { href: "/kebijakan-privasi", label: "Kebijakan Privasi" },
-              ]}
-            />
-
-            <FooterSection
-              title="Pusat Bantuan"
-              links={[
-                { href: "/faq", label: "FAQ" },
-                { href: "/kontak", label: "Kontak" },
-                { href: "/pengembalian", label: "Pengembalian" },
-                { href: "/pengiriman", label: "Pengiriman" },
-              ]}
-            />
-          </div>
-
-          {/* Social Media Icons */}
-          <div className="mt-8 flex justify-center sm:justify-end space-x-6">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition-colors"
-            >
-              <FaFacebookF size={18} />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition-colors"
-            >
-              <FaTwitter size={18} />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition-colors"
-            >
-              <FaInstagram size={18} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition-colors"
-            >
-              <FaLinkedinIn size={18} />
-            </a>
-          </div>
-
-          {/* Copyright Notice */}
-          <div className="mt-8 text-center text-sm text-black">
-            <p>&copy; 2025 Grip.com. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Frooter />
     </div>
   );
 };
-
 // Accordion-style footer section component for mobile
 const FooterSection = ({ title, links }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -304,11 +291,11 @@ const FooterSection = ({ title, links }) => {
       {/* Links - Collapsed on mobile if closed */}
       <ul
         className={`space-y-2 overflow-hidden transition-all duration-300 
-        ${
-          isOpen
-            ? "max-h-48 opacity-100"
-            : "max-h-0 opacity-0 sm:max-h-48 sm:opacity-100"
-        }`}
+          ${
+            isOpen
+              ? "max-h-48 opacity-100"
+              : "max-h-0 opacity-0 sm:max-h-48 sm:opacity-100"
+          }`}
       >
         {links.map((link, index) => (
           <li key={index}>

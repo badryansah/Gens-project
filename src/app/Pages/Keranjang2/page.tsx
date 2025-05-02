@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Navbar from "../Navbar/Page";
+import Navbar from "../../Components/Navbar/Page";
 import Image from "next/image";
 import Link from "next/link";
 import { IoTrashOutline, IoCheckmarkCircle } from "react-icons/io5";

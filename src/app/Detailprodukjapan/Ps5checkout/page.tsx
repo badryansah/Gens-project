@@ -5,7 +5,6 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-  FaShoppingCart,
   FaCreditCard,
   FaMapMarkerAlt,
   FaPhone,
@@ -16,9 +15,9 @@ import Image from "next/image";
 import BCA from "@/app/aset/bca.jpg";
 import Mandiri from "@/app/aset/mandiri.webp";
 import Visa from "@/app/aset/visa.webp";
-import Gamepad from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
-import Navbar from "../Navbar/Page";
-import Frooter from "../Frooter/Page";
+import Playstation from "@/app/aset/Keranjang/Playstation5.png";
+import Navbar from "../../Components/Navbar/Page";
+import Frooter from "../../Components/Frooter/Page";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -509,8 +508,8 @@ export default function Checkout() {
                     <div className="flex items-center space-x-3">
                       <div className="relative overflow-hidden rounded-md">
                         <Image
-                          src={Gamepad}
-                          alt="H1 Gamepad"
+                          src={Playstation}
+                          alt="Playstation"
                           width={60}
                           height={60}
                           className="object-cover"
@@ -735,7 +734,7 @@ export default function Checkout() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Link href="/completepay">Konfirmasi Pesan</Link>
+                    <Link href="completepay/">Konfirmasi</Link>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 ml-1"

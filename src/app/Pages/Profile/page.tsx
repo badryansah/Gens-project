@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import Navbar from "../Navbar/Page";
-import Frooter from "../Frooter/Page";
+import Navbar from "../../Components/Navbar/Page";
+import Frooter from "../../Components/Frooter/Page";
 // Define types for our data
 interface ProfileFormData {
   fullName: string;

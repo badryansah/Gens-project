@@ -5,7 +5,6 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-  FaShoppingCart,
   FaCreditCard,
   FaMapMarkerAlt,
   FaPhone,
@@ -16,7 +15,7 @@ import Image from "next/image";
 import BCA from "@/app/aset/bca.jpg";
 import Mandiri from "@/app/aset/mandiri.webp";
 import Visa from "@/app/aset/visa.webp";
-import speaker from "@/app/aset/speaker.png";
+import Gamepad from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
 import Navbar from "../../Components/Navbar/Page";
 import Frooter from "../../Components/Frooter/Page";
 import Link from "next/link";
@@ -377,10 +376,6 @@ export default function Checkout() {
               <p className="mt-2 text-xs sm:text-sm text-center text-black">
                 {step}
               </p>
-              {/* Modified to not show line under step 1 */}
-              {index === 1 && (
-                <div className="h-1 w-full hidden sm:block mt-4"></div>
-              )}
             </div>
           ))}
         </div>
@@ -496,6 +491,7 @@ export default function Checkout() {
                   className="bg-white p-6 rounded-lg shadow-lg"
                   initial={{ x: 20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
+                  Total
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <motion.div
@@ -512,25 +508,27 @@ export default function Checkout() {
                     <div className="flex items-center space-x-3">
                       <div className="relative overflow-hidden rounded-md">
                         <Image
-                          src={speaker}
-                          alt="Jbl Speaker"
+                          src={Gamepad}
+                          alt="H1 Gamepad"
                           width={60}
                           height={60}
                           className="object-cover"
                         />
                       </div>
                       <div>
-                        <p className="font-medium text-black">Jbl Speaker</p>
-                        <p className="text-sm text-black">1 x $112</p>
+                        <p className="font-medium text-black">
+                          Stick Controller
+                        </p>
+                        <p className="text-sm text-black">1 x $462</p>
                       </div>
                     </div>
-                    <span className="font-semibold text-black ">$112</span>
+                    <span className="font-semibold text-black ">$924</span>
                   </motion.div>
 
                   <div className="py-3">
                     <div className="flex justify-between items-center py-2">
                       <span className="text-black">Subtotal</span>
-                      <span className="text-black">$112</span>
+                      <span className="text-black">$924</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-black">Pengiriman</span>
@@ -547,7 +545,7 @@ export default function Checkout() {
                           repeatDelay: 5,
                         }}
                       >
-                        $125
+                        $937
                       </motion.span>
                     </div>
                   </div>
@@ -652,36 +650,6 @@ export default function Checkout() {
                         />
                       </div>
                     </motion.div>
-
-                    <motion.div
-                      className={`border ${
-                        paymentMethod === "COD"
-                          ? "border-blue-600 bg-blue-50"
-                          : "border-gray-300"
-                      } p-4 rounded-lg cursor-pointer`}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setPaymentMethod("COD")}
-                    >
-                      <div className="flex items-center space-x-3">
-                        <input
-                          type="radio"
-                          id="cod"
-                          name="payment"
-                          value="COD"
-                          checked={paymentMethod === "COD"}
-                          onChange={() => setPaymentMethod("COD")}
-                          className="accent-blue-600 w-5 h-5"
-                        />
-                        <label
-                          htmlFor="cod"
-                          className="font-medium flex-1 text-black"
-                        >
-                          EWallet
-                        </label>
-                        <FaShoppingCart className="text-blue-600" size={24} />
-                      </div>
-                    </motion.div>
                   </motion.div>
 
                   {paymentMethod === "Bank" && (
@@ -694,7 +662,7 @@ export default function Checkout() {
                       <h4 className="font-medium mb-2 text-black">
                         Instruksi Pembayaran:
                       </h4>
-                      <ol className="list-decimal list-inside text-sm  text-black">
+                      <ol className="list-decimal list-inside text-sm space-y-2 text-black">
                         <li>Pilih bank dari pilihan yang tersedia</li>
                         <li>Transfer ke rekening yang ditampilkan</li>
                         <li>Simpan bukti pembayaran</li>
@@ -716,7 +684,7 @@ export default function Checkout() {
                   <div className="py-3">
                     <div className="flex justify-between items-center py-2 text-black">
                       <span className="text-black">Subtotal</span>
-                      <span>$112</span>
+                      <span>$924</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-black">Pengiriman</span>
@@ -733,7 +701,7 @@ export default function Checkout() {
                           repeatDelay: 5,
                         }}
                       >
-                        $125
+                        $937
                       </motion.span>
                     </div>
                   </div>
@@ -766,7 +734,7 @@ export default function Checkout() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Link href="/completepay">Konfirmasi Pesan</Link>
+                    <Link href="completepay/">Konfirmasi</Link>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 ml-1"

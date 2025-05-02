@@ -8,7 +8,6 @@ import {
   IoPersonOutline,
   IoCloseOutline,
   IoChevronForward,
-  IoSearchOutline,
   IoChatbubbleEllipsesOutline,
   IoSendSharp,
 } from "react-icons/io5";
@@ -140,7 +139,7 @@ const Navbar = () => {
   const handleCartInteraction = () => {
     if (isMobile) {
       // On mobile, navigate directly to cart page
-      window.location.href = "/Keranjang2";
+      window.location.href = "Pages/Keranjang2";
     } else {
       // On desktop, toggle dropdown
       setCartOpen(!cartOpen);
@@ -242,7 +241,7 @@ const Navbar = () => {
 
             <div className="flex items-center gap-2 md:gap-4">
               {/* Favorites - show only on desktop */}
-              <Link href="/Barangfavorite" className="hidden md:block">
+              <Link href="Pages/Barangfavorite" className="hidden md:block">
                 <button className="text-black">
                   <IoHeartOutline className="text-2xl" />
                 </button>
@@ -250,7 +249,7 @@ const Navbar = () => {
 
               {/* Cart - show only on desktop */}
               <div className="relative hidden md:block" ref={cartDropdownRef}>
-                <Link href={isMobile ? "/Keranjang2" : "#"}>
+                <Link href={isMobile ? "Pages/Keranjang2" : "#"}>
                   <button
                     className="relative text-black p-1.5"
                     onClick={
@@ -325,12 +324,12 @@ const Navbar = () => {
                         </span>
                       </div>
                       <div className="flex gap-2">
-                        <Link href="/Keranjang2" className="flex-1">
+                        <Link href="Pages/Keranjang2" className="flex-1">
                           <button className="w-full py-1.5 md:py-2 px-2 md:px-3 bg-gray-200 hover:bg-gray-300 text-black rounded-lg text-xs md:text-sm font-medium transition-colors">
                             Lihat Keranjang
                           </button>
                         </Link>
-                        <Link href="/Checkout" className="flex-1">
+                        <Link href="Pages/Checkout" className="flex-1">
                           <button className="w-full py-1.5 md:py-2 px-2 md:px-3 bg-[#315CEA] hover:bg-blue-700 text-white rounded-lg text-xs md:text-sm font-medium transition-colors">
                             Checkout
                           </button>
@@ -343,12 +342,12 @@ const Navbar = () => {
 
               {/* Auth buttons - show only on desktop */}
               <div className="hidden md:flex space-x-2">
-                <Link href="/Signup">
+                <Link href="/Pages/Signup">
                   <button className="px-4 py-1.5 bg-[#315CEA] text-white rounded-full text-sm">
                     Sign Up
                   </button>
                 </Link>
-                <Link href="/login">
+                <Link href="Pages/login">
                   <button className="px-4 py-1.5 bg-[#315CEA] text-white rounded-full text-sm">
                     Login
                   </button>
@@ -356,7 +355,7 @@ const Navbar = () => {
               </div>
 
               {/* Profile - show only on desktop */}
-              <Link href="/Profile" className="hidden md:block">
+              <Link href="Pages/Profile" className="hidden md:block">
                 <button className="text-black">
                   <IoPersonOutline className="text-xl md:text-2xl" />
                 </button>
@@ -382,12 +381,12 @@ const Navbar = () => {
 
             {/* Auth buttons in mobile menu */}
             <div className="flex space-x-2 mb-6">
-              <Link href="/Signup" className="flex-1">
+              <Link href="/Pages/Signup" className="flex-1">
                 <button className="w-full px-4 py-2 bg-[#315CEA] text-white rounded-full text-sm">
                   Sign Up
                 </button>
               </Link>
-              <Link href="/login" className="flex-1">
+              <Link href="Pages/login" className="flex-1">
                 <button className="w-full px-4 py-2 bg-[#315CEA] text-white rounded-full text-sm">
                   Login
                 </button>
@@ -396,7 +395,7 @@ const Navbar = () => {
 
             {/* Profile section in mobile menu */}
             <div className="mb-6 border-b border-gray-100 pb-4">
-              <Link href="/Profile">
+              <Link href="Pages/Profile">
                 <div className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-md">
                   <IoPersonOutline className="text-xl text-gray-700" />
                   <span className="text-black">Profil Saya</span>
@@ -406,7 +405,7 @@ const Navbar = () => {
 
             {/* Cart section in mobile menu */}
             <div className="mb-6 border-b border-gray-100 pb-4">
-              <Link href="/Keranjang2">
+              <Link href="Pages/Keranjang2">
                 <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md">
                   <div className="flex items-center space-x-3">
                     <IoCartOutline className="text-xl text-gray-700" />

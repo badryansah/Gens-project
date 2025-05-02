@@ -14,7 +14,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Navbar from "../../Components/Navbar/Page";
 import Frooter from "../../Components/Frooter/Page";
-import speaker from "@/app/aset/speaker.png";
+import sps5 from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
 import Link from "next/link";
 
 const Keranjang = () => {
@@ -25,11 +25,11 @@ const Keranjang = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: "Jbl Speaker",
-      price: 112,
-      quantity: 1,
+      name: "Stick Controller",
+      price: 462,
+      quantity: 2,
       isFavorite: false,
-      image: speaker,
+      image: sps5,
     },
   ]);
 

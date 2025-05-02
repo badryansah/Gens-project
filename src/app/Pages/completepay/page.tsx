@@ -481,17 +481,6 @@ const PaymentCompletedPage = () => {
             variants={fadeInUp}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link href="/invoice" className="flex-1">
-              <motion.button
-                whileHover={{ scale: 1.02, backgroundColor: "#cbd5e1" }}
-                whileTap={{ scale: 0.98 }}
-                className="py-3 px-4 bg-gray-200 text-gray-800 rounded-xl font-medium flex items-center justify-center gap-2 transition-colors w-full border border-gray-300"
-              >
-                <IoDownload className="text-lg" />
-                <span>Download Invoice</span>
-              </motion.button>
-            </Link>
-
             <Link href="/Home" className="flex-1">
               <motion.button
                 whileHover={{ scale: 1.02, backgroundColor: "#4f46e5" }}

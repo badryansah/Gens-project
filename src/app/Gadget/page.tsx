@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { IoHeart, IoEye } from "react-icons/io5";
-import Navbar from "../Navbar/Page";
-import Frooter from "../Frooter/Page";
+import Navbar from "../Components/Navbar/Page";
+import Frooter from "../Components/Frooter/Page";
 import { motion } from "framer-motion";
 
 // image

@@ -12,9 +12,9 @@ import {
 import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import Navbar from "../Navbar/Page";
-import Frooter from "../Frooter/Page";
-import sps5 from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
+import Navbar from "../../Components/Navbar/Page";
+import Frooter from "../../Components/Frooter/Page";
+import Playstation from "@/app/aset/Keranjang/Playstation5.png";
 import Link from "next/link";
 
 const Keranjang = () => {
@@ -25,11 +25,11 @@ const Keranjang = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: "Stick Controller",
+      name: "Playstation",
       price: 462,
       quantity: 2,
       isFavorite: false,
-      image: sps5,
+      image: Playstation,
     },
   ]);
 
@@ -316,7 +316,7 @@ const Keranjang = () => {
                 </div>
 
                 {/* Checkout Button */}
-                <Link href="/Checkout">
+                <Link href="Ps5checkout/">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
