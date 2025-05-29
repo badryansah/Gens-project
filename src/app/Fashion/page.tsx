@@ -95,6 +95,13 @@ function Fashion() {
     },
   };
 
+  // Fungsi untuk memformat harga ke dalam bentuk rupiah
+  const formatPrice = (price: number | string) => {
+    return new Intl.NumberFormat("id-ID").format(
+      Math.round(Number(price) * 15000)
+    );
+  };
+
   // Product card component for reuse
   const ProductCard = ({ item, index }) => (
     <motion.div
@@ -132,10 +139,10 @@ function Fashion() {
           </h3>
           <div className="flex items-center gap-2 mb-1 md:mb-2">
             <span className="text-[#DB4444] font-medium text-sm md:text-base">
-              ${item.price}
+              Rp{formatPrice(item.price)}
             </span>
             <span className="text-gray-400 line-through text-xs md:text-sm">
-              ${item.originalPrice}
+              {item.originalPrice ? `Rp${formatPrice(item.originalPrice)}` : ""}
             </span>
           </div>
           <div className="flex items-center gap-2">

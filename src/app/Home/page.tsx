@@ -237,6 +237,11 @@ function Home() {
     return () => clearInterval(countdown);
   }, []);
 
+  // Tambahkan fungsi formatPrice jika belum ada
+  const formatPrice = (price: number | string) => {
+    return new Intl.NumberFormat("id-ID").format(Number(price));
+  };
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Include the Navbar component */}
@@ -406,8 +411,8 @@ function Home() {
               {
                 img: stik,
                 name: "Controller Playstation 5",
-                price: 462,
-                originalPrice: 320,
+                price: 6930000, // $462 x 15.000
+                originalPrice: 4800000, // $320 x 15.000
                 discount: 40,
                 rating: 5,
                 reviews: 88,
@@ -415,8 +420,8 @@ function Home() {
               {
                 img: foto2,
                 name: "Mac-Pro 2020",
-                price: 1299,
-                originalPrice: 1960,
+                price: 19485000, // $1299 x 15.000
+                originalPrice: 29400000, // $1960 x 15.000
                 discount: 35,
                 rating: 4,
                 reviews: 75,
@@ -424,8 +429,8 @@ function Home() {
               {
                 img: foto3,
                 name: "HP Laptop",
-                price: 799,
-                originalPrice: 370,
+                price: 11985000, // $799 x 15.000
+                originalPrice: 5550000, // $370 x 15.000
                 discount: 30,
                 rating: 5,
                 reviews: 99,
@@ -433,8 +438,8 @@ function Home() {
               {
                 img: foto4,
                 name: "Asus Gaming Keyboard",
-                price: 399,
-                originalPrice: 375,
+                price: 5985000, // $399 x 15.000
+                originalPrice: 5625000, // $375 x 15.000
                 discount: 25,
                 rating: 4.5,
                 reviews: 99,
@@ -442,8 +447,8 @@ function Home() {
               {
                 img: foto5,
                 name: "Brother Printer",
-                price: 399,
-                originalPrice: 375,
+                price: 5985000, // $399 x 15.000
+                originalPrice: 5625000, // $375 x 15.000
                 discount: 25,
                 rating: 4.5,
                 reviews: 99,
@@ -495,7 +500,7 @@ function Home() {
                   >
                     <Link href="Pages/Detailproduk" className="w-full">
                       <button className="w-full py-2 bg-white text-black rounded-full text-xs md:text-sm font-medium transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 flex items-center justify-center gap-1">
-                        <span>View Details</span>
+                        <span>Beli Sekarang</span>
                         <IoChevronForward />
                       </button>
                     </Link>
@@ -508,10 +513,12 @@ function Home() {
                     </h3>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-[#DB4444] font-medium text-sm md:text-base">
-                        ${item.price}
+                        Rp{formatPrice(item.price)}
                       </span>
                       <span className="text-gray-400 line-through text-xs md:text-sm">
-                        ${item.originalPrice}
+                        {item.originalPrice
+                          ? `Rp${formatPrice(item.originalPrice)}`
+                          : ""}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
@@ -540,7 +547,7 @@ function Home() {
                       whileTap={{ scale: 0.97 }}
                       className="w-full mt-3 md:mt-4 py-1.5 md:py-2 bg-[#315CEA] text-white rounded-md text-xs md:text-sm hover:bg-blue-600 transition-colors shadow-md hover:shadow-lg flex items-center justify-center gap-1"
                     >
-                      <span>Add To Cart</span>
+                      <span>Beli Sekarang</span>
                       <motion.span
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ repeat: Infinity, duration: 2 }}
@@ -633,31 +640,31 @@ function Home() {
               {
                 img: foto6,
                 name: "The north coat",
-                price: "399",
-                originalPrice: "360",
+                price: 5985000, // $399 x 15.000
+                originalPrice: 5400000, // $360 x 15.000
                 rating: 5,
                 reviews: 65,
               },
               {
                 img: foto7,
                 name: "Gucci duffle bag",
-                price: "399",
-                originalPrice: "1160",
+                price: 5985000, // $399 x 15.000
+                originalPrice: 17400000, // $1160 x 15.000
                 rating: 5,
                 reviews: 65,
               },
               {
                 img: foto8,
                 name: "RGB liquid CPU Cooler",
-                price: "399",
-                originalPrice: "170",
+                price: 5985000, // $399 x 15.000
+                originalPrice: 2550000, // $170 x 15.000
                 rating: 5,
                 reviews: 65,
               },
               {
                 img: foto9,
                 name: "Small BookSelf",
-                price: "399",
+                price: 5985000, // $399 x 15.000
                 originalPrice: null,
                 rating: 5,
                 reviews: 65,
@@ -665,7 +672,7 @@ function Home() {
               {
                 img: foto10,
                 name: "Small BookSelf",
-                price: "399",
+                price: 5985000, // $399 x 15.000
                 originalPrice: null,
                 rating: 5,
                 reviews: 65,
@@ -740,7 +747,7 @@ function Home() {
                       transition={{ delay: 0.2 + 0.1 * index }}
                       className="text-[#DB4444] font-medium text-sm md:text-base"
                     >
-                      ${item.price}
+                      Rp{formatPrice(item.price)}
                     </motion.span>
 
                     {item.originalPrice && (
@@ -750,7 +757,7 @@ function Home() {
                         transition={{ delay: 0.3 + 0.1 * index }}
                         className="text-gray-400 line-through text-xs md:text-sm"
                       >
-                        ${item.originalPrice}
+                        Rp{formatPrice(item.originalPrice)}
                       </motion.span>
                     )}
                   </div>
@@ -799,10 +806,10 @@ function Home() {
                   <motion.button
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="w-full mt-3 md:mt-4 py-1.5 md:py-2 bg-[#315CEA] text-white rounded-md text-xs md:text-sm group overflow-hidden relative"
+                    className="w-full mt-3 md:mt-4 py-1.5 md:py-2 bg-[#315CEA] text-white rounded-md text-xs md:text-sm hover:bg-blue-600 transition-colors relative overflow-hidden group"
                   >
                     <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                      Add To Cart
+                      Beli Sekarang
                     </span>
                     <motion.div
                       initial={{ x: "-100%" }}
@@ -1195,7 +1202,7 @@ function Home() {
               {
                 img: foto10,
                 name: "Breed Dry Dog Food",
-                price: "100",
+                price: 1500000, // $100 x 15.000
                 rating: 4,
                 reviews: 35,
                 new: true,
@@ -1203,16 +1210,15 @@ function Home() {
               {
                 img: foto11,
                 name: "CANON EOS DSLR Camera",
-                price: "360",
+                price: 5400000, // $360 x 15.000
                 rating: 4,
                 reviews: 95,
                 new: true,
               },
-              // Removed ASUS FHD Gaming Laptop product (3rd item)
               {
                 img: foto13,
                 name: "Curology Product Set",
-                price: "500",
+                price: 7500000, // $500 x 15.000
                 rating: 4,
                 reviews: 145,
                 new: true,
@@ -1220,7 +1226,7 @@ function Home() {
               {
                 img: foto14,
                 name: "Kids Electric Car",
-                price: "960",
+                price: 14400000, // $960 x 15.000
                 rating: 5,
                 reviews: 65,
                 new: true,
@@ -1228,7 +1234,7 @@ function Home() {
               {
                 img: foto15,
                 name: "Jr. Zoom Soccer Cleats",
-                price: "1160",
+                price: 17400000, // $1160 x 15.000
                 rating: 4,
                 reviews: 35,
                 new: true,
@@ -1236,7 +1242,7 @@ function Home() {
               {
                 img: foto16,
                 name: "GP11 Shooter USB Gamepad",
-                price: "660",
+                price: 9900000, // $660 x 15.000
                 rating: 4,
                 reviews: 55,
                 new: true,
@@ -1244,7 +1250,7 @@ function Home() {
               {
                 img: foto17,
                 name: "Quilted Satin Jacket",
-                price: "660",
+                price: 9900000, // $660 x 15.000
                 rating: 4,
                 reviews: 55,
                 new: true,
@@ -1334,7 +1340,7 @@ function Home() {
                       className="flex items-center gap-2 mb-1 md:mb-2"
                     >
                       <span className="text-[#DB4444] font-medium text-sm md:text-base">
-                        ${item.price}
+                        Rp{formatPrice(item.price)}
                       </span>
                     </motion.div>
 
@@ -1370,7 +1376,7 @@ function Home() {
                     whileTap={{ scale: 0.97 }}
                     className="w-full mt-2 md:mt-4 py-1.5 md:py-2 bg-[#315CEA] text-white rounded-md text-xs md:text-sm transition-colors relative overflow-hidden group"
                   >
-                    <span className="relative z-10">Add To Cart</span>
+                    <span className="relative z-10">Beli Sekarang</span>
                     <motion.div
                       initial={{ x: "-100%" }}
                       whileHover={{ x: "0%" }}
@@ -1432,6 +1438,7 @@ function Home() {
                   scale: [1, 1.1, 1],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
+                className="inline-block"
               >
                 ✨
               </motion.span>
@@ -1498,10 +1505,10 @@ function Home() {
               </motion.div>
 
               <motion.div
-                initial={{ x: -50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="absolute bottom-4 left-4 z-10 text-white"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="absolute bottom-8 left-8 text-white"
               >
                 <h3 className="text-xl font-bold mb-1 drop-shadow-md">
                   PlayStation 5
@@ -1516,8 +1523,9 @@ function Home() {
                   <motion.span
                     animate={{ x: [0, 3, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
+                    className="ml-1"
                   >
-                    <IoChevronForward className="ml-1" />
+                    <IoChevronForward />
                   </motion.span>
                 </motion.button>
               </motion.div>

@@ -18,6 +18,14 @@ import LCDMonitor from "@/app/aset/monitor.png";
 import parfum from "@/app/aset/assetHome/2.png";
 import ps5 from "@/app/aset/assetHome/3.png";
 
+// Tambahkan fungsi formatPrice untuk rupiah
+const formatPrice = (price: number | string) => {
+  return (
+    "Rp" +
+    new Intl.NumberFormat("id-ID").format(Math.round(Number(price) * 15000))
+  );
+};
+
 const Detail = () => {
   const [quantity, setQuantity] = useState(1);
   const [currentImage, setCurrentImage] = useState(speaker);
@@ -60,9 +68,11 @@ const Detail = () => {
             </p>
             <div className="flex items-center gap-3 mt-2">
               <p className="text-xl sm:text-2xl font-bold text-gray-800">
-                $112.00
+                {formatPrice(112)}
               </p>
-              <span className="line-through text-black text-sm">$150</span>
+              <span className="line-through text-black text-sm">
+                {formatPrice(150)}
+              </span>
               <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full">
                 -20%
               </span>
@@ -151,26 +161,26 @@ const Detail = () => {
             {[
               {
                 name: "Gaming Monitor",
-                price: "$159,84",
-                original: "$199.99",
+                price: 159.84,
+                original: 199.99,
                 image: LCDMonitor,
               },
               {
                 name: "Mac Pro 2023",
-                price: "$99.00",
-                original: "$129.00",
+                price: 99.0,
+                original: 129.0,
                 image: parfum,
               },
               {
                 name: "Laptop Hewlett-Packard",
-                price: "$463.67",
-                original: "$499.99",
+                price: 463.67,
+                original: 499.99,
                 image: ps5,
               },
               {
                 name: "Controller Ps 5",
-                price: "$70.00",
-                original: "$85.00",
+                price: 70.0,
+                original: 85.0,
                 image: sps5,
               },
             ].map((item, index) => (
@@ -191,9 +201,11 @@ const Detail = () => {
                   {item.name}
                 </h4>
                 <div className="flex items-center gap-2 mt-1">
-                  <p className="text-blue-600 font-semibold">{item.price}</p>
+                  <p className="text-blue-600 font-semibold">
+                    {formatPrice(item.price)}
+                  </p>
                   <p className="text-black text-xs line-through">
-                    {item.original}
+                    {formatPrice(item.original)}
                   </p>
                 </div>
               </div>

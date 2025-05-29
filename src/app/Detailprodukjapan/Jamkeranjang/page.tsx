@@ -323,7 +323,7 @@ const Keranjang = () => {
                 </div>
 
                 {/* Checkout Button */}
-                <Link href="Ps5checkout/">
+                <Link href="Jamcheckout /">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

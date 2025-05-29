@@ -17,6 +17,13 @@ import Frooter from "../../Components/Frooter/Page";
 import speaker from "@/app/aset/speaker.png";
 import Link from "next/link";
 
+const formatPrice = (price: number | string) => {
+  return (
+    "Rp" +
+    new Intl.NumberFormat("id-ID").format(Math.round(Number(price) * 15000))
+  );
+};
+
 const Keranjang = () => {
   // Animation states
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -194,7 +201,7 @@ const Keranjang = () => {
                                 {item.name}
                               </h3>
                               <p className="text-blue-600 text-lg font-semibold">
-                                ${item.price}
+                                {formatPrice(item.price)}
                               </p>
                             </div>
                           </div>
@@ -260,7 +267,7 @@ const Keranjang = () => {
                       {cartItems.reduce((acc, item) => acc + item.quantity, 0)}{" "}
                       items)
                     </span>
-                    <span>${subtotal.toFixed(2)}</span>
+                    <span>{formatPrice(subtotal)}</span>
                   </div>
                   <div className="flex justify-between text-gray-600">
                     <span>Shipping</span>
@@ -269,13 +276,13 @@ const Keranjang = () => {
                   {couponApplied && (
                     <div className="flex justify-between text-green-600">
                       <span>Discount</span>
-                      <span>-${discount.toFixed(2)}</span>
+                      <span>-{formatPrice(discount)}</span>
                     </div>
                   )}
                   <div className="border-t pt-3 mt-3">
                     <div className="flex justify-between font-bold text-lg">
                       <span>Total</span>
-                      <span>${finalTotal.toFixed(2)}</span>
+                      <span>{formatPrice(finalTotal)}</span>
                     </div>
                   </div>
                 </div>

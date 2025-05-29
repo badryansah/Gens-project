@@ -250,6 +250,14 @@ const Footer = () => {
   );
 };
 
+// Tambahkan fungsi formatPrice untuk rupiah
+const formatPrice = (price: number | string) => {
+  return (
+    "Rp" +
+    new Intl.NumberFormat("id-ID").format(Math.round(Number(price) * 15000))
+  );
+};
+
 export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState("COD");
   const [formData, setFormData] = useState({
@@ -401,7 +409,7 @@ export default function Checkout() {
                 </motion.h2>
 
                 <motion.div
-                  className="bg-white rounded-lg shadow-lg p-6 space-y-4"
+                  className="bg-white p-6 rounded-lg shadow-lg space-y-4"
                   variants={itemVariants}
                 >
                   <div className="relative">
@@ -491,7 +499,6 @@ export default function Checkout() {
                   className="bg-white p-6 rounded-lg shadow-lg"
                   initial={{ x: 20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  Total
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   <motion.div
@@ -519,20 +526,24 @@ export default function Checkout() {
                         <p className="font-medium text-black">
                           Stick Controller
                         </p>
-                        <p className="text-sm text-black">1 x $462</p>
+                        <p className="text-sm text-black">
+                          1 x {formatPrice(462)}
+                        </p>
                       </div>
                     </div>
-                    <span className="font-semibold text-black ">$924</span>
+                    <span className="font-semibold text-black ">
+                      {formatPrice(924)}
+                    </span>
                   </motion.div>
 
                   <div className="py-3">
                     <div className="flex justify-between items-center py-2">
                       <span className="text-black">Subtotal</span>
-                      <span className="text-black">$924</span>
+                      <span className="text-black">{formatPrice(924)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-black">Pengiriman</span>
-                      <span className="text-black">$13</span>
+                      <span className="text-black">{formatPrice(13)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2 font-bold text-lg text-black">
                       <span>Total</span>
@@ -545,7 +556,7 @@ export default function Checkout() {
                           repeatDelay: 5,
                         }}
                       >
-                        $937
+                        {formatPrice(937)}
                       </motion.span>
                     </div>
                   </div>
@@ -684,11 +695,11 @@ export default function Checkout() {
                   <div className="py-3">
                     <div className="flex justify-between items-center py-2 text-black">
                       <span className="text-black">Subtotal</span>
-                      <span>$924</span>
+                      <span>{formatPrice(924)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-black">Pengiriman</span>
-                      <span className="text-black">$13</span>
+                      <span className="text-black">{formatPrice(13)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2 font-bold text-lg text-black">
                       <span>Total</span>
@@ -701,7 +712,7 @@ export default function Checkout() {
                           repeatDelay: 5,
                         }}
                       >
-                        $937
+                        {formatPrice(937)}
                       </motion.span>
                     </div>
                   </div>

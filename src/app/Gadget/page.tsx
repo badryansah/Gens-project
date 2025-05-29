@@ -92,6 +92,11 @@ function Gadget() {
     },
   };
 
+  // Tambahkan fungsi formatPrice untuk rupiah
+  const formatPrice = (price: number | string) => {
+    return new Intl.NumberFormat("id-ID").format(Math.round(Number(price)));
+  };
+
   // Product card component for reuse
   const ProductCard = ({ item, index }) => (
     <motion.div
@@ -159,10 +164,12 @@ function Gadget() {
             transition={{ delay: 0.5 }}
           >
             <span className="text-[#DB4444] font-medium text-sm md:text-base">
-              ${item.price}
+              Rp{formatPrice(Number(item.price) * 15000)}
             </span>
             <span className="text-gray-400 line-through text-xs md:text-sm">
-              ${item.originalPrice}
+              {item.originalPrice
+                ? `Rp${formatPrice(Number(item.originalPrice) * 15000)}`
+                : ""}
             </span>
           </motion.div>
           <motion.div

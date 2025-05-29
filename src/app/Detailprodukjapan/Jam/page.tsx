@@ -14,9 +14,18 @@ import Image from "next/image";
 import Link from "next/link";
 import speaker from "@/app/aset/speaker.png";
 import sps5 from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
+import Playstation from "@/app/aset/Keranjang/Playstation5.png";
 import LCDMonitor from "@/app/aset/monitor.png";
 import parfum from "@/app/aset/assetHome/2.png";
 import ps5 from "@/app/aset/assetHome/3.png";
+
+// Tambahkan fungsi formatPrice untuk rupiah
+const formatPrice = (price: number | string) => {
+  return (
+    "Rp" +
+    new Intl.NumberFormat("id-ID").format(Math.round(Number(price) * 15000))
+  );
+};
 
 const Detail = () => {
   const [quantity, setQuantity] = useState(1);
@@ -40,8 +49,8 @@ const Detail = () => {
           <div className="px-2 sm:px-0">
             <div className="relative w-full h-64 sm:h-80 md:h-96">
               <Image
-                src={currentImage}
-                alt="Gamepad"
+                src={Playstation}
+                alt="PlayStation 5"
                 layout="fill"
                 objectFit="contain"
                 className="rounded-md"
@@ -53,24 +62,28 @@ const Detail = () => {
           {/* Product details - Better spacing and typography for mobile */}
           <div className="px-2 sm:px-0">
             <h2 className="text-xl sm:text-2xl font-semibold text-black">
-              Jbl Speaker
+              Playstation 5
             </h2>
             <p className="text-yellow-500 flex items-center text-sm sm:text-base my-2">
               ⭐⭐⭐⭐ <span className="ml-1">4.5 (120 reviews)</span>
             </p>
             <div className="flex items-center gap-3 mt-2">
               <p className="text-xl sm:text-2xl font-bold text-gray-800">
-                $112.00
+                {formatPrice(500)}
               </p>
-              <span className="line-through text-black text-sm">$150</span>
+              <span className="line-through text-black text-sm">
+                {formatPrice(150)}
+              </span>
               <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full">
                 -20%
               </span>
             </div>
             <p className="text-black mt-4 text-sm sm:text-base">
-              Hadirkan suasana pesta ke mana pun kamu pergi dengan JBL Pulse,
-              speaker portabel yang memadukan kualitas suara khas JBL dengan
-              pertunjukan cahaya LED yang memukau.
+              Berdasarkan informasi yang saya temukan, berikut deskripsi produk
+              PlayStation 5 dalam satu paragraf: PlayStation 5 hadir sebagai
+              konsol generasi terbaru dari Sony yang menawarkan pengalaman
+              gaming tak tertandingi dengan pemrosesan kilat berkat SSD
+              ultra-cepat
             </p>
 
             {/* Divider */}
@@ -105,7 +118,7 @@ const Detail = () => {
               <button className="bg-gray-200 hover:bg-gray-300 text-black font-medium px-6 py-3 rounded-md transition-colors flex-1 flex items-center justify-center">
                 <IoCartOutline className="mr-2" /> Keranjang
               </button>
-              <Link href="Keranjang/" className="flex-1">
+              <Link href="Jamkeranjang/" className="flex-1">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md w-full font-medium transition-colors">
                   Pesan Sekarang
                 </button>
@@ -151,26 +164,26 @@ const Detail = () => {
             {[
               {
                 name: "Gaming Monitor",
-                price: "$159,84",
-                original: "$199.99",
+                price: 159.84,
+                original: 199.99,
                 image: LCDMonitor,
               },
               {
                 name: "Mac Pro 2023",
-                price: "$99.00",
-                original: "$129.00",
+                price: 99.0,
+                original: 129.0,
                 image: parfum,
               },
               {
                 name: "Laptop Hewlett-Packard",
-                price: "$463.67",
-                original: "$499.99",
+                price: 463.67,
+                original: 499.99,
                 image: ps5,
               },
               {
                 name: "Controller Ps 5",
-                price: "$70.00",
-                original: "$85.00",
+                price: 70.0,
+                original: 85.0,
                 image: sps5,
               },
             ].map((item, index) => (
@@ -191,9 +204,11 @@ const Detail = () => {
                   {item.name}
                 </h4>
                 <div className="flex items-center gap-2 mt-1">
-                  <p className="text-blue-600 font-semibold">{item.price}</p>
+                  <p className="text-blue-600 font-semibold">
+                    {formatPrice(item.price)}
+                  </p>
                   <p className="text-black text-xs line-through">
-                    {item.original}
+                    {formatPrice(item.original)}
                   </p>
                 </div>
               </div>

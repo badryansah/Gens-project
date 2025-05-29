@@ -351,6 +351,14 @@ export default function Checkout() {
     );
   }
 
+  // Tambahkan fungsi formatPrice untuk rupiah
+  const formatPrice = (price: number | string) => {
+    return (
+      "Rp" +
+      new Intl.NumberFormat("id-ID").format(Math.round(Number(price) * 15000))
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       {/* Include the Navbar component */}
@@ -521,20 +529,24 @@ export default function Checkout() {
                       </div>
                       <div>
                         <p className="font-medium text-black">Jbl Speaker</p>
-                        <p className="text-sm text-black">1 x $112</p>
+                        <p className="text-sm text-black">
+                          1 x {formatPrice(112)}
+                        </p>
                       </div>
                     </div>
-                    <span className="font-semibold text-black ">$112</span>
+                    <span className="font-semibold text-black ">
+                      {formatPrice(112)}
+                    </span>
                   </motion.div>
 
                   <div className="py-3">
                     <div className="flex justify-between items-center py-2">
                       <span className="text-black">Subtotal</span>
-                      <span className="text-black">$112</span>
+                      <span className="text-black">{formatPrice(112)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-black">Pengiriman</span>
-                      <span className="text-black">$13</span>
+                      <span className="text-black">{formatPrice(13)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2 font-bold text-lg text-black">
                       <span>Total</span>
@@ -547,7 +559,7 @@ export default function Checkout() {
                           repeatDelay: 5,
                         }}
                       >
-                        $125
+                        {formatPrice(125)}
                       </motion.span>
                     </div>
                   </div>
@@ -716,11 +728,11 @@ export default function Checkout() {
                   <div className="py-3">
                     <div className="flex justify-between items-center py-2 text-black">
                       <span className="text-black">Subtotal</span>
-                      <span>$112</span>
+                      <span>{formatPrice(112)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="text-black">Pengiriman</span>
-                      <span className="text-black">$13</span>
+                      <span className="text-black">{formatPrice(13)}</span>
                     </div>
                     <div className="flex justify-between items-center py-2 font-bold text-lg text-black">
                       <span>Total</span>
@@ -733,7 +745,7 @@ export default function Checkout() {
                           repeatDelay: 5,
                         }}
                       >
-                        $125
+                        {formatPrice(125)}
                       </motion.span>
                     </div>
                   </div>
