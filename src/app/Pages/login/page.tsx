@@ -184,8 +184,11 @@ function Login() {
                     </label>
                   </div>
                   <motion.div whileHover={{ scale: 1.05, color: "#2563EB" }}>
-                    <a href="#" className="text-blue-500 hover:text-blue-600">
-                      Forgot password?
+                    <a
+                      href="/Admin/H1"
+                      className="text-blue-500 hover:text-blue-600"
+                    >
+                      Admin ?
                     </a>
                   </motion.div>
                 </motion.div>
@@ -241,7 +244,7 @@ function Login() {
               >
                 Don't have an account?{" "}
                 <Link
-                  href="Signup/"
+                  href="/Signup"
                   className="text-blue-500 hover:underline font-medium"
                 >
                   <motion.span whileHover={{ scale: 1.05, color: "#2563EB" }}>

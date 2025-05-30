@@ -1,35 +1,27 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Logo from "@/app/aset/logo.png";
 import { motion } from "framer-motion";
 import {
   IoTrendingUp,
   IoTrendingDown,
   IoEllipsisHorizontal,
   IoFilter,
-  IoSearch,
-  IoNotifications,
-  IoChevronForward,
   IoStar,
 } from "react-icons/io5";
 
-// Animation variants (ambil dari Home)
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
@@ -49,9 +41,6 @@ const itemFade = {
 
 const AdminDashboard = () => {
   const [isVisible, setIsVisible] = useState({});
-  const [selectedPeriod, setSelectedPeriod] = useState("This Month");
-
-  // Mock data (bisa diganti dengan fetch API)
   const stats = [
     {
       title: "Total Sales",
@@ -118,7 +107,6 @@ const AdminDashboard = () => {
     },
   ];
 
-  // Scroll animation observer (ambil dari Home)
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -132,61 +120,47 @@ const AdminDashboard = () => {
       { threshold: 0.1 }
     );
 
-    document.querySelectorAll("[data-animate]").forEach((el) => {
-      observer.observe(el);
-    });
-
+    document
+      .querySelectorAll("[data-animate]")
+      .forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between"
       >
-        <div className="flex items-center gap-4">
-          <motion.h1
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-2xl font-bold text-gray-900"
-          >
-            Admin Dashboard
-          </motion.h1>
-        </div>
-        <div className="flex items-center gap-4">
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="p-2 text-gray-400 hover:text-gray-600 relative"
-          >
-            <IoNotifications className="text-xl" />
-            <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
-          </motion.button>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-            className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+        <motion.h1
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-2xl font-bold text-gray-900"
+        >
+          Admin Dashboard
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          <Image
+            src={Logo}
+            alt="Profile"
+            className="w-10 h-10 rounded-full object-cover border border-gray-200 shadow"
           />
-        </div>
+        </motion.div>
       </motion.header>
 
       <main className="max-w-7xl mx-auto px-4 md:px-6 py-8">
-        {/* Stats Cards */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
-          id="statsCards"
           data-animate
         >
           {stats.map((stat, index) => (
@@ -196,7 +170,6 @@ const AdminDashboard = () => {
               whileHover="hover"
               className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative overflow-hidden group"
             >
-              {/* Animated background elements */}
               <div className="absolute -top-12 -right-12 w-24 h-24 bg-blue-200 rounded-full opacity-10 blur-xl group-hover:opacity-20 transition-opacity duration-300"></div>
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-medium text-gray-600">
@@ -223,7 +196,7 @@ const AdminDashboard = () => {
                     stat.isPositive ? "text-green-600" : "text-red-600"
                   }`}
                 >
-                  {stat.isPositive ? <IoTrendingUp /> : <IoTrendingDown />}
+                  {stat.isPositive ? <IoTrendingUp /> : <IoTrendingDown />}{" "}
                   {stat.change}%
                 </motion.div>
                 <span className="text-sm text-gray-500">{stat.subtitle}</span>
@@ -232,13 +205,11 @@ const AdminDashboard = () => {
           ))}
         </motion.div>
 
-        {/* Top Selling Products */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
           className="bg-white rounded-xl shadow-sm border border-gray-100 mb-8"
-          id="topProducts"
           data-animate
         >
           <div className="p-6 border-b border-gray-100 flex items-center justify-between">
@@ -250,26 +221,15 @@ const AdminDashboard = () => {
             >
               Produk Terlaris
             </motion.h3>
-            <div className="flex items-center gap-3">
-              <motion.button
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6 }}
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-2 px-3 py-1.5 border border-gray-300 rounded-lg text-sm hover:bg-gray-50"
-              >
-                <IoFilter />
-                Filter
-              </motion.button>
-              <motion.button
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 }}
-                className="text-sm text-blue-600 hover:text-blue-700"
-              >
-                Lihat Semua
-              </motion.button>
-            </div>
+            <motion.button
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center gap-2 px-3 py-1.5 border border-gray-300 rounded-lg text-sm hover:bg-gray-50 text-black"
+            >
+              <IoFilter /> Filter
+            </motion.button>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">
@@ -306,10 +266,8 @@ const AdminDashboard = () => {
                     whileHover={{ backgroundColor: "#f9fafb" }}
                     className="transition-colors duration-150"
                   >
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="text-sm font-medium text-gray-900">
-                        {product.name}
-                      </span>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      {product.name}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       {product.price}
