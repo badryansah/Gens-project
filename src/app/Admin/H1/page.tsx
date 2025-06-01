@@ -221,15 +221,6 @@ const AdminDashboard = () => {
             >
               Produk Terlaris
             </motion.h3>
-            <motion.button
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 }}
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 px-3 py-1.5 border border-gray-300 rounded-lg text-sm hover:bg-gray-50 text-black"
-            >
-              <IoFilter /> Filter
-            </motion.button>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full">

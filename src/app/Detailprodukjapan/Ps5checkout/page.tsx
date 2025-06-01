@@ -17,7 +17,7 @@ import Mandiri from "@/app/aset/mandiri.webp";
 import Visa from "@/app/aset/visa.webp";
 import Playstation from "@/app/aset/Keranjang/Playstation5.png";
 import Navbar from "../../Components/Navbar/Page";
-import Frooter from "../../Components/Frooter/Page";
+
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -778,9 +778,6 @@ export default function Checkout() {
           )}
         </motion.div>
       </main>
-
-      {/* Footer */}
-      <Frooter />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Frooter from "../Components/Frooter/Page";
+
 import aks from "@/app/aset/Benner/BennerAksesoris.jpg";
 import Navbar from "../Components/Navbar/Page";
 import { motion } from "framer-motion";
@@ -603,8 +603,6 @@ function Aksesoris() {
           </motion.div>
         </section>
       </main>
-      {/* Footer - Responsive */}
-      <Frooter />
     </div>
   );
 }

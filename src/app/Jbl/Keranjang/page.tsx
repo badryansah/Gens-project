@@ -13,7 +13,7 @@ import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Navbar from "../../Components/Navbar/Page";
-import Frooter from "../../Components/Frooter/Page";
+
 import speaker from "@/app/aset/speaker.png";
 import Link from "next/link";
 
@@ -345,9 +345,6 @@ const Keranjang = () => {
           </div>
         </div>
       </motion.div>
-
-      {/* Footer */}
-      <Frooter />
     </div>
   );
 };

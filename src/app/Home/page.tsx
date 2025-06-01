@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../Components/Navbar/Page";
-import Frooter from "../Components/Frooter/Page";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -1912,7 +1911,6 @@ function Home() {
                   />
                 </motion.div>
 
-                {/* Circular pulse effect */}
                 {[1, 2, 3].map((i) => (
                   <motion.div
                     key={i}
@@ -1936,8 +1934,6 @@ function Home() {
           </motion.div>
         </section>
       </main>
-      {/* Footer - Responsive */}
-      <Frooter />
     </div>
   );
 }

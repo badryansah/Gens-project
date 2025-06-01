@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Navbar from "../../Components/Navbar/Page";
-import Frooter from "../../Components/Frooter/Page";
+
 // Define types for our data
 interface ProfileFormData {
   fullName: string;
@@ -676,9 +676,6 @@ const Profile = () => {
           </div>
         )}
       </main>
-
-      {/* Footer */}
-      <Frooter />
     </div>
   );
 };

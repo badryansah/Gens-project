@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Baju from "@/app/aset/Benner/Fashion.png";
 import Navbar from "../Components/Navbar/Page";
-import Frooter from "../Components/Frooter/Page";
+
 import { motion } from "framer-motion";
 
 import jaket1 from "@/app/aset/asetFashion/jaket1.png";
@@ -579,8 +579,6 @@ function Fashion() {
           </motion.div>
         </section>
       </main>
-      {/* Footer - Responsive */}
-      <Frooter />
     </div>
   );
 }

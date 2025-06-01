@@ -244,7 +244,7 @@ function Login() {
               >
                 Don't have an account?{" "}
                 <Link
-                  href="/Signup"
+                  href="Signup/"
                   className="text-blue-500 hover:underline font-medium"
                 >
                   <motion.span whileHover={{ scale: 1.05, color: "#2563EB" }}>

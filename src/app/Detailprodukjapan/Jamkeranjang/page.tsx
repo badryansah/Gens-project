@@ -13,8 +13,8 @@ import { IoClose } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Navbar from "../../Components/Navbar/Page";
-import Frooter from "../../Components/Frooter/Page";
-import Playstation from "@/app/aset/Keranjang/Playstation5.png";
+
+import Jamputih from "@/app/aset/Keranjang/JamTanganputih.png";
 import Link from "next/link";
 
 const formatPrice = (price: number | string) => {
@@ -32,11 +32,11 @@ const Keranjang = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: "Playstation",
+      name: "Gucci Watch",
       price: 462,
       quantity: 2,
       isFavorite: false,
-      image: Playstation,
+      image: Jamputih,
     },
   ]);
 
@@ -323,7 +323,7 @@ const Keranjang = () => {
                 </div>
 
                 {/* Checkout Button */}
-                <Link href="Jamcheckout /">
+                <Link href="Jamcheckout/">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -345,9 +345,6 @@ const Keranjang = () => {
           </div>
         </div>
       </motion.div>
-
-      {/* Footer */}
-      <Frooter />
     </div>
   );
 };

@@ -14,7 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import speaker from "@/app/aset/speaker.png";
 import sps5 from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
-import Playstation from "@/app/aset/Keranjang/Playstation5.png";
+import Playstation from "@/app/aset/Keranjang/JamTanganputih.png";
 import LCDMonitor from "@/app/aset/monitor.png";
 import parfum from "@/app/aset/assetHome/2.png";
 import ps5 from "@/app/aset/assetHome/3.png";
@@ -50,7 +50,7 @@ const Detail = () => {
             <div className="relative w-full h-64 sm:h-80 md:h-96">
               <Image
                 src={Playstation}
-                alt="PlayStation 5"
+                alt="Gucci Watch"
                 layout="fill"
                 objectFit="contain"
                 className="rounded-md"
@@ -62,7 +62,7 @@ const Detail = () => {
           {/* Product details - Better spacing and typography for mobile */}
           <div className="px-2 sm:px-0">
             <h2 className="text-xl sm:text-2xl font-semibold text-black">
-              Playstation 5
+              Gucci Watch
             </h2>
             <p className="text-yellow-500 flex items-center text-sm sm:text-base my-2">
               ⭐⭐⭐⭐ <span className="ml-1">4.5 (120 reviews)</span>

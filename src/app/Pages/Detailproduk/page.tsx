@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FaTruck, FaCreditCard } from "react-icons/fa";
 import { IoCartOutline, IoChevronDown, IoChevronUp } from "react-icons/io5";
 import Navbar from "../../Components/Navbar/Page";
-import Frooter from "../../Components/Frooter/Page";
+
 import Image from "next/image";
 import Link from "next/link";
 import sps5 from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
@@ -277,9 +277,6 @@ const Detail = () => {
           </div>
         </section>
       </main>
-
-      {/* Footer - Simplified and more responsive */}
-      <Frooter />
     </div>
   );
 };

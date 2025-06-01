@@ -10,7 +10,6 @@ import {
 } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../Components/Navbar/Page";
-import Footer from "../../Components/Frooter/Page";
 
 // Instead of using imports, use direct URL paths or public folder paths
 const productImages = {

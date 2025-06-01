@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Logo from "@/app/aset/logo.png";
-import GoogleLogo from "@/app/aset/google-removebg-preview.png";
+
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";

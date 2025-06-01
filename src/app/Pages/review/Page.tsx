@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Navbar from "../../Components/Navbar/Page";
-import Frooter from "../../Components/Frooter/Page";
+
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { IoStar, IoStarOutline } from "react-icons/io5";
@@ -201,7 +201,6 @@ const ReviewPage = () => {
           ))}
         </motion.div>
       </main>
-      <Frooter />
     </div>
   );
 };
