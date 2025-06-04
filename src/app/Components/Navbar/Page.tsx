@@ -355,7 +355,7 @@ const Navbar = () => {
               </div>
 
               {/* Profile - show only on desktop */}
-              <Link href="Pages/Profile" className="hidden md:block">
+              <Link href="/Pages/Profile" className="hidden md:block">
                 <button className="text-black">
                   <IoPersonOutline className="text-xl md:text-2xl" />
                 </button>
@@ -477,7 +477,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/Barangfavorite">
+                  <Link href="/Pages/Barangfavorite">
                     <div className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-md text-gray-600">
                       <IoHeartOutline className="text-lg" />
                       <span>Barang Favorit</span>
