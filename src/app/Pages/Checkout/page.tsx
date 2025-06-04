@@ -17,6 +17,7 @@ import Mandiri from "@/app/aset/mandiri.webp";
 import Visa from "@/app/aset/visa.webp";
 import Gamepad from "@/app/aset/PlayStation 5  Wireless Controller.jpg";
 import Navbar from "../../Components/Navbar/Page";
+import { useRouter } from "next/navigation";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -258,6 +259,20 @@ const formatPrice = (price: number | string) => {
   );
 };
 
+// Replace the existing generateWhatsAppMessage function with this:
+const generateWhatsAppMessage = (formData, totalPrice) => {
+  const message = `Halo, saya ingin melakukan konfirmasi pembayaran:
+  
+Nama: ${formData.name}
+Alamat: ${formData.address}
+Kode Pos: ${formData.postalCode}
+No. HP: ${formData.phone}
+Total Pembayaran: ${totalPrice}
+${formData.message ? `Pesan: ${formData.message}` : ""}`;
+
+  return encodeURIComponent(message);
+};
+
 export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState("COD");
   const [formData, setFormData] = useState({
@@ -270,6 +285,7 @@ export default function Checkout() {
   const [isFormComplete, setIsFormComplete] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     // Simulasi loading halaman
@@ -678,7 +694,7 @@ export default function Checkout() {
                         <li>Transfer ke rekening yang ditampilkan</li>
                         <li>Simpan bukti pembayaran</li>
                         <li>
-                          Konfirmasi pembayaran melalui halaman konfirmasi
+                          Konfirmasi pembayaran melalui Whatsapp konfirmasi
                         </li>
                       </ol>
                     </motion.div>
@@ -740,12 +756,42 @@ export default function Checkout() {
                     Kembali
                   </motion.button>
                   <motion.button
-                    onClick={handleNextStep}
+                    onClick={async () => {
+                      try {
+                        const waNumber = "6285244304050";
+                        const message = generateWhatsAppMessage(
+                          formData,
+                          formatPrice(937)
+                        );
+                        const waUrl = `https://api.whatsapp.com/send?phone=${waNumber}&text=${message}`;
+
+                        // Open WhatsApp in a new window
+                        const waWindow = window.open(waUrl, "_blank");
+
+                        // Redirect to completion page after WhatsApp window is opened
+                        setTimeout(() => {
+                          router.push("completepay/");
+                        }, 1000);
+                      } catch (error) {
+                        console.error("Error opening WhatsApp:", error);
+                        // Fallback for mobile devices
+                        const waUrl = `whatsapp://send?phone=6285244304050&text=${generateWhatsAppMessage(
+                          formData,
+                          formatPrice(937)
+                        )}`;
+                        window.location.href = waUrl;
+
+                        // Redirect to completion page for mobile devices
+                        setTimeout(() => {
+                          router.push("completepay/");
+                        }, 1000);
+                      }
+                    }}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md flex-1 font-medium transition-colors flex items-center justify-center"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <Link href="completepay/">Konfirmasi</Link>
+                    Konfirmasi via WhatsApp
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5 ml-1"

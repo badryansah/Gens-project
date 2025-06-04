@@ -480,9 +480,6 @@ const EcommercePage = () => {
           ))}
         </motion.div>
       </main>
-
-      {/* Footer */}
-      <Footer />
     </motion.div>
   );
 };
