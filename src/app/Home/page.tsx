@@ -40,12 +40,11 @@ import foto14 from "@/app/aset/assetHome/14.png";
 import foto15 from "@/app/aset/assetHome/15.png";
 import foto16 from "@/app/aset/assetHome/16.png";
 import foto17 from "@/app/aset/assetHome/17.png";
-import benner2 from "@/app/aset/assetHome/Benner2.png";
-import benner3 from "@/app/aset/assetHome/benner3.png";
-import benner4 from "@/app/aset/assetHome/benner4.png";
-import benner5 from "@/app/aset/assetHome/benner5.png";
-import benner6 from "@/app/aset/assetHome/Benner6.png";
-import benner7 from "@/app/aset/assetHome/Benner7.png";
+import benner2 from "@/app/aset/assetHome/Akesoris-Benner.jpg";
+import benner3 from "@/app/aset/assetHome/Fashion-benner.jpg";
+import benner4 from "@/app/aset/assetHome/Gadget-Benner2.jpg";
+import benner5 from "@/app/aset/assetHome/Gadget-benner.jpg";
+
 // Add interface for isVisible state
 interface IsVisibleState {
   [key: string]: boolean;
@@ -134,7 +133,7 @@ function Home() {
   }, []);
 
   // Hero Banner ---
-  const banners = [Nike, benner5, benner2, benner3, benner4, benner6, benner7];
+  const banners = [Nike, benner5, benner2, benner3, benner4];
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
 
   useEffect(() => {
