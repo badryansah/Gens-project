@@ -34,7 +34,7 @@ const Keranjang = () => {
       id: 1,
       name: "Stick Controller",
       price: 462,
-      quantity: 2,
+      quantity: 1,
       isFavorite: false,
       image: sps5,
     },

@@ -232,11 +232,6 @@ const Navbar = () => {
                   Aksesoris
                 </button>
               </Link>
-              <Link href="/Home">
-                <button className="px-6 py-2.5 bg-gray-100 rounded-full text-black hover:bg-gray-200 font-medium whitespace-nowrap">
-                  Lainnya
-                </button>
-              </Link>
             </div>
 
             <div className="flex items-center gap-2 md:gap-4">
@@ -421,45 +416,53 @@ const Navbar = () => {
             </div>
 
             {/* Categories */}
-            <h3 className="font-medium text-gray-800 mb-2">Kategori</h3>
-            <ul className="space-y-2 mb-6 border-b border-gray-100 pb-4">
+            <h3 className="font-semibold text-gray-900 mb-2 text-base tracking-wide">
+              Kategori
+            </h3>
+            <ul className="divide-y divide-gray-100 mb-6 border-b border-gray-100 pb-4">
               <li>
                 <Link href="/Home">
-                  <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
-                    <span>Home</span>
+                  <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors text-black shadow-sm">
+                    <span className="font-medium text-sm flex items-center gap-2">
+                      <span className="inline-block w-2 h-2 bg-blue-400 rounded-full mr-2"></span>
+                      Home
+                    </span>
                     <IoChevronForward className="text-gray-400" />
                   </div>
                 </Link>
               </li>
               <li>
                 <Link href="/Fashion">
-                  <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
-                    <span>Fashion</span>
+                  <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-50 hover:bg-pink-50 transition-colors text-black shadow-sm">
+                    <span className="font-medium text-sm flex items-center gap-2">
+                      <span className="inline-block w-2 h-2 bg-pink-400 rounded-full mr-2"></span>
+                      Fashion
+                    </span>
                     <IoChevronForward className="text-gray-400" />
                   </div>
                 </Link>
               </li>
               <li>
                 <Link href="/Gadget">
-                  <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
-                    <span>Gadget</span>
+                  <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-50 hover:bg-green-50 transition-colors text-black shadow-sm">
+                    <span className="font-medium text-sm flex items-center gap-2">
+                      <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                      Gadget
+                    </span>
                     <IoChevronForward className="text-gray-400" />
                   </div>
                 </Link>
               </li>
               <li>
                 <Link href="/aksesoris">
-                  <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
-                    <span>Aksesoris</span>
+                  <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-gray-50 hover:bg-yellow-50 transition-colors text-black shadow-sm">
+                    <span className="font-medium text-sm flex items-center gap-2">
+                      <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+                      Aksesoris
+                    </span>
                     <IoChevronForward className="text-gray-400" />
                   </div>
                 </Link>
-              </li>
-              <li>
-                <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-md text-black">
-                  <span>Lainnya</span>
-                  <IoChevronForward className="text-gray-400" />
-                </div>
               </li>
             </ul>
 
